@@ -1,7 +1,8 @@
-# Fortran_Coupled_ODEs_solver
+# Coupled ODEs solver code
+
 Fortran code and perl to solve coupled k-essence ODEs written by Jean-Pierre Eckmann using Ernst Hairer (http://www.unige.ch/~hairer/) solver, this code validated by Farbod Hassani's mathematica notebook. The code includes many commments thakns to Jean-Pierre Eckamnn.
 
-To run:
+## Single orbit
 gfortran -O6 -ffree-line-length-0 one_orbit.f90 dopri5_no_rpar.f90 dopri5copy_no_rpar.f90 -o one_orbit 
 or
 ifort -xHost -O3 -w -qopt-report -prof-use -ipo one_orbit.f90 dopri5_no_rpar.f90 dopri5copy_no_rpar.f90  -o one_orbit
@@ -23,6 +24,10 @@ or  with ">!" to rewrite the availbe data file.
 ./one_orbit 1 1 -0.7 | ./plot_one.pl >! data.txt
 
 In xmgrace -> Plot --> set appearence --> choose data set and in type to see how to represent the data and also check the solout precision/time steps.
+
+
+
+## Study for varied quantities
 
 For the grid runs and going over different values of c_s^2 and w:
 It's better to use tcsh shell: /bin/tcsh to have access to more commands
