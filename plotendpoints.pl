@@ -11,14 +11,14 @@ use strict;
 {
 
     my $w=-0.7E00;
-    my $nc=30;
-    my $np=30;
+    my $nc=20;
+    my $np=20;
     my $ncmin=5e-15;
     my $ncmax=1;
 
 
     my $npmin=5e-8;
-    my $npmax=1000e0;
+    my $npmax=10e0;
 
     my $facc=exp(-log($ncmin/$ncmax)/$nc);
     my $facp=exp(-log($npmin/($npmax))/$np);
