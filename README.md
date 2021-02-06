@@ -74,7 +74,7 @@ Then we need to just run perl file:
 or in order to save data we have:
 
 ```bash
-./plotendpoints.pl > saved.txt
+./plotendpoints.pl >! saved.dat
 ```
 
 In case the libraries are not sourced:
