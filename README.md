@@ -1,4 +1,4 @@
-# Coupled ODEs solver code
+# Coupled ODEs solver
 
 Fortran code and perl to solve coupled k-essence ODEs written by Jean-Pierre Eckmann using Ernst Hairer (http://www.unige.ch/~hairer/) solver, this code validated by Farbod Hassani's mathematica notebook. The code includes many commments thakns to Jean-Pierre Eckamnn.
 
