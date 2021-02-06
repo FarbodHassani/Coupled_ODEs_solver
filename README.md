@@ -48,7 +48,11 @@ In xmgrace -> Plot --> set appearence --> choose data set and in type to see how
 ## Study for varied quantities
 
 For the grid runs and going over different values of c_s^2 and w:
-It's better to use tcsh shell: /bin/tcsh to have access to more commands
+It's better to use tcsh shell to have access to more commands
+
+```bash
+/bin/tcsh
+```
 
 First compile the fortran with either of the following commands:
 
