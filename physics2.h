@@ -1,11 +1,14 @@
 implicit none
-real*8 Oradiation,Omatter,Odarke,h0,h0inv,w,cs2,zini,precision
+real*8 Oradiation,Omatter,Odarke,h0,h0inv,w,cs2,zini,zfinal,precision
   parameter(Oradiation=9D-5)
   parameter(Omatter=0.31D00)
+ !! parameter(Omatter=1D0-Oradiation)     !no dark energy
   parameter(Odarke=1d00-Oradiation-Omatter) ! the sum should be exactly 1
   parameter(h0=0.0691023D00)
   parameter(h0inv=1d00/h0)
   parameter(zini=1000D00)
+!! parameter(zfinal=-0.9999D00)
+   parameter(zfinal=0D00)
   parameter(precision=0.3D-12)
   
   !! these are the initial k values for the

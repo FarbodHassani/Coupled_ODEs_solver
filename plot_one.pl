@@ -1,12 +1,13 @@
-#!/usr/local/bin/perl
-
+#!/usr/bin/perl
 use strict;
 {
     my $psi2;
 	my $cs2;
-	my $w;
-#    my $text=`ifort_norpar $psi2 $cs2 $w`;
-#        my $text=`a.out $psi2 $cs2 $w`;
+    my $w;
+    my $zfinal;
+    my $Odarke;
+    #    my $text=`ifort_norpar $psi2 $cs2 $w`;
+    #        my $text=`a.out $psi2 $cs2 $w`;
     my $ymax=10;
     my $maxx=0;
     my %data=();
@@ -21,18 +22,22 @@ use strict;
 	    if($txt=~ /psi2/){$psi2=$data;}
 	    if($txt=~ /cs2/){$cs2=$data;}
 	    if($txt=~ /w/){$w=$data;}
+	    if($txt=~ /zfinal/){$zfinal=$data;}
+	    if($txt=~ /Odarke/){$Odarke=$data;}
+
 	    next;
 	}
 	my($x,@y)=split(' ',$line);
 	@{$data{$x}}=@y;
 	if($x>$maxx){$maxx=$x;}
-
+	
     }
-
+    
 
     print_header();
     print "\@ with g0\n";
     print "\@ title \"psi2=$psi2  cs2=$cs2 w=$w\"\n";
+    print "\@ subtitle \"zfinal=$zfinal  Odarke=$Odarke\"\n";
     print "\@ world 0, -$ymax,$maxx+1,$ymax\n";
     print "\@ xaxis tick major 5\n";
     print "\@ xaxis label \"tau\"\n";
@@ -52,10 +57,10 @@ use strict;
     @{$c[10]}=(21,"pip3");
     @{$c[11]}=(22,"pip4");
     @{$c[12]}=(23,"taustar");
-    @{$c[13]}=(24,"taustar2");
+    @{$c[13]}=(24,"hprime");
       @{$c[14]}=(25,"l2norm");
-       for my $i (4,9,0){
-    #   for my $i (0..23){
+#       for my $i (4,9){
+     for my $i (2,4,7,9){
 #	    for my $i (0..14){
 	print "\@target G0.S$i\n";
 	print "\@ s$i linewidth 2.5\n";
