@@ -5,7 +5,7 @@ program  cosmology
   !! usage : one_orbit psi2 cs2 w | plot_one.pl | xmgrace -
 
   !! we need 2 distinct copies of dopri5 because we use dopri5copy within dopri5
-  !! (Thanks to Ernst Hairer for helping the debug)  
+  !! (Thanks to Ernst Hairer for helping the debug)
   !! ifort runs under bash
   !! seems about 25% faster
 
@@ -18,8 +18,8 @@ program  cosmology
   integer*4 ndgl,nrdens,n,lwork,liwork,iwork
   real*8 y,work,cosmofcn
   parameter(n=1+4*(degree+1))
-  parameter (ndgl=n,nrdens=n)   !! put nrdense=n if iout=2 
-  parameter (lwork=8*ndgl+5*nrdens+21,liwork=nrdens+21) 
+  parameter (ndgl=n,nrdens=n)   !! put nrdense=n if iout=2
+  parameter (lwork=8*ndgl+5*nrdens+21,liwork=nrdens+21)
   dimension y(ndgl),work(lwork),iwork(liwork)
   external cosmofcn,cosmosolout
   real*8 atol(1),rtol(1),h,x,xend
@@ -76,12 +76,12 @@ program  cosmology
      w=w_i
 
      tauini=z2tau(zini)  ! depends on w
-     tauend=z2tau(zfinal)  !depends on w 
+     tauend=z2tau(zfinal)  !depends on w
 !          write(0,*)tauini,tauend
      do paramc=0,nc   !loop over c_s^2
         !        cs2=(cmax-cmin)*paramc/nc+cmin
         cs2=cs2_i
-        !! the initial conditions        
+        !! the initial conditions
         do i=1,n
            y(i)=0
         enddo
@@ -94,24 +94,24 @@ program  cosmology
            y(psi+i)=kvalue(i)
         enddo
         !        y(pip+2)=0.0d00
-        !! prepare dopri5 
-        h=0.3d0 
+        !! prepare dopri5
+        h=0.3d0
         rtol(1)=precision
         atol(1)=precision
         itol=0    ! rtol and atol are scalars
-        iout=2    ! call cosmosolout after each step =1, 
+        iout=2    ! call cosmosolout after each step =1,
         !! iout=2 allows for the interpolation
 
         ! ----------- default values for dopri5 ------
-        do  i=1,20 
-           iwork(i)=0 
+        do  i=1,20
+           iwork(i)=0
            work(i)=0.d0
         end do
 
         !! set start and end
         x=tauini
         xend=tauend
-        
+
 
         iwork(1)=1000000   !! maximum number of integration steps
         iwork(5)=n         !! dense output for all variables
@@ -142,7 +142,7 @@ program  cosmology
 end program cosmology
 
 
-subroutine cosmosolout(nr,xold,x,y,n,con,icomp,nd,irtrn) 
+subroutine cosmosolout(nr,xold,x,y,n,con,icomp,nd,irtrn)
   include'physics2.h'
   integer*4 nr,n,icomp,nd,irtrn
   real*8 xold,x,y,con
@@ -169,7 +169,7 @@ subroutine cosmosolout(nr,xold,x,y,n,con,icomp,nd,irtrn)
      l2norm=l2norm+y(pi+i)**2+y(pip+i)**2
   enddo
   if(l2norm>10D40**2)then
-     irtrn=-17
+ !    irtrn=-17
      return
   endif
   !! for intermediate values use contd5(i,time,con,icomp,nd)
@@ -191,15 +191,15 @@ subroutine cosmosolout(nr,xold,x,y,n,con,icomp,nd,irtrn)
      f1=contd5(pip+2,x1,con,icomp,nd)
      f2=contd5(pip+2,x2,con,icomp,nd)
      f3=contd5(pip+2,x3,con,icomp,nd)
-     
+
      taustar=newtaustar(x1,x2,x3,f1,f2,f3)
      !!    if(taustar<10*x.and. taustar>0)  print *,x,abs(taustar+0.00001),ampl,y(pi+2)
      write(6,'(25e15.7)')x,y,taustar-x,hh,l2norm
      if(abs(taustar-x)<0.1D00 .and. abs(y(pip+2))>5)then
-        irtrn=-15
+!        irtrn=-15
      endif
   endif
-  return 
+  return
 end subroutine cosmosolout
 
 subroutine cosmofcn(n,x,y,f)
@@ -228,11 +228,11 @@ subroutine cosmofcn(n,x,y,f)
   real*8 hx,hprimex
   real*8 hprime,psirhs
   external hprime,psirhs
-  
+
   integer*4 i
 !!! these definitions should make the formulas for f(...) more readable.
   !! perhaps they give a factor 3 of speedup
-  
+
   real*8 pi0,pi1,pi2,pi3,pi4
   real*8 pid0,pid1,pid2,pid3,pid4
   real*8 psi0,psi1,psi2,psi3,psi4
@@ -241,7 +241,7 @@ subroutine cosmofcn(n,x,y,f)
   !! note that the suffix p here really means derivative wrt tau, not x
   !! the x derivatives are captured via the digits 0-4 (which select the
   !! coefficients of the powers of x
-  
+
   pi0=y(pi+0)
   pi1=y(pi+1)
   pi2=y(pi+2)
@@ -253,7 +253,7 @@ subroutine cosmofcn(n,x,y,f)
   pid3=y(pip+3)
   pid4=y(pip+4)
 
-  
+
 
   psi0=y(psi+0)
   psi1=y(psi+1)
@@ -275,7 +275,7 @@ subroutine cosmofcn(n,x,y,f)
   f(a)=h0*sqrt(Odarke*y(a)**(1-3*w)+Omatter*y(a)+Oradiation)
 
   !! now that we have a and a' we can compute H and H' (at x)
-  !! we write hx (because h is the step size in dopri5) 
+  !! we write hx (because h is the step size in dopri5)
 
   !! Note that H(x) is simply a'(x)/a(x) i.e., f(a)/y(a)
   !! while       H'(x) = Q(a(x))
@@ -288,9 +288,9 @@ subroutine cosmofcn(n,x,y,f)
   !write(6,*)x,hx,hprimex,'y'
  ! hx=2/x
  ! hprimex=-2/x**2
-  
+
   !! the coefficients which appear in the u_i equations
-  !! since x is fixed in cosmofcn, 
+  !! since x is fixed in cosmofcn,
   !! but of course they do through the current values of hx,hprimex
 
   !!the ell
@@ -310,6 +310,14 @@ subroutine cosmofcn(n,x,y,f)
   nu_psip_pip    = (cs2-1)
   nu_pip_pip_pipp= 3*(cs2-1)/2
 
+  nu_pip_pip       = -hx*(5*cs2+3*w-2)/2        ! depends on x
+  nu_pip_pipd     = 0
+  nu_pi_pipp     = 0      ! depends on x
+  nu_pid_pipp   = 0
+  nu_psi_pipp    = 0
+  nu_psip_pip    = 0
+  nu_pip_pip_pipp= 0
+
 
   !the equation for psi_0 to psi_4
   do i=0,degree
@@ -318,11 +326,11 @@ subroutine cosmofcn(n,x,y,f)
   do i=0,degree
      f(psip+i)=psirhs(n,y,i,hx,hprimex)   ! psi_i'
   enddo
- 
 
-  
 
-  !! now we have all the psi,psi' which appear in the equs for the u_i 
+
+
+  !! now we have all the psi,psi' which appear in the equs for the u_i
   !! the equations for the u_i follow
 
   !! the second derivatives u_i'=v_i , i=0,...,4
@@ -391,21 +399,21 @@ end subroutine cosmofcn
 
 
 real*8 function z2tau(z)  !! computes tau as function of z
-  !! NB. This needs an integration 
+  !! NB. This needs an integration
   include 'physics2.h'
 
   ! note that tau(z_*=infty,w) =0
   ! therefore we can write the diffential equation
   ! tau'(z) =-H_0^{-1} 1/sqrt(...) *
 
-  ! numerically, wew should not integrate to infinity, but 
+  ! numerically, wew should not integrate to infinity, but
   ! we can bound the contribution int_Z^\infty by
   ! using only the term 1/\sqrt{\Omega_m (z)^3}
   !  with Omega_m=0.31 and H0^{-1}=15
   ! < 51/sqrt(Z). so, if we want to know tau (which is at least 0.01 or so)
   ! we take 51/sqrt(Z)=0.00001
   ! which is about Z= 10^{16}
-  ! 
+  !
 
 
   real*8 z
@@ -415,8 +423,8 @@ real*8 function z2tau(z)  !! computes tau as function of z
   integer*4 ndgl,nrdens,n,lwork,liwork,iwork
   real*8 y,work
   parameter(n=1)
-  parameter (ndgl=n,nrdens=n)   !! put nrdense=n if iout=2 
-  parameter (lwork=8*ndgl+5*nrdens+21,liwork=nrdens+21) 
+  parameter (ndgl=n,nrdens=n)   !! put nrdense=n if iout=2
+  parameter (lwork=8*ndgl+5*nrdens+21,liwork=nrdens+21)
   dimension y(ndgl),work(lwork),iwork(liwork)
   real*8 h,atol(1),rtol(1),x,xend
   integer*4 itol,iout,idid
@@ -429,12 +437,12 @@ real*8 function z2tau(z)  !! computes tau as function of z
 
 
   y=0D00
-  x=z ! this is the initial point of the integration 
+  x=z ! this is the initial point of the integration
   xend=1.0D16 ! this is a sufficiently large upper bound to guarantee
   ! tau to error 0.000001
 
 !!!prepare dopri5
-  h=0.3d0 
+  h=0.3d0
   rtol(1)=precision
   atol(1)=precision
   itol=0    ! rtol and atol are scalars
@@ -443,8 +451,8 @@ real*8 function z2tau(z)  !! computes tau as function of z
   !! we dont need this so far
 
   ! ----------- default values ------
-  do  i=1,20 
-     iwork(i)=0 
+  do  i=1,20
+     iwork(i)=0
      work(i)=0.d0
   end do
   iwork(1)=1000000
@@ -459,7 +467,7 @@ real*8 function z2tau(z)  !! computes tau as function of z
   return
 end function z2tau
 
-subroutine tausolout (nr,xold,x,y,n,con,icomp,nd,irtrn) 
+subroutine tausolout (nr,xold,x,y,n,con,icomp,nd,irtrn)
   !! currently not used
   implicit none
   integer*4 nr,n,icomp,nd,irtrn
@@ -474,7 +482,7 @@ subroutine tausolout (nr,xold,x,y,n,con,icomp,nd,irtrn)
      print *,x,y(1),nr
   end if
   !! for intermediate values use contd5copy(i,time,con,icomp,nd)
-  return 
+  return
 end subroutine tausolout
 
 
@@ -485,7 +493,7 @@ subroutine taufcn(n,x,y,f)
   dimension y(n),f(n)
   f(1)=h0inv/sqrt(Odarke*(1+x)**(3*(1+w))+Omatter*(1+x)**3+Oradiation*(1+x)**4)
 end subroutine taufcn
-  
+
 real*8 function hprime(aa)
   include 'physics2.h'
   real*8 aa ! this is a(tau)
@@ -504,7 +512,7 @@ real*8 function psirhs(n,y,i,hx,hprimex)
       -((2-3*Omatter/(2*Omatter+2*Odarke/y(a)**(3*w)+2*Oradiation/y(a)))*hx**2&
       +hprimex)*y(psi+i)
 end function psirhs
- 
+
 subroutine ampltaustar(x,xold,u,uold,ampl,taustar)
   include 'physics2.h'
   real*8 x,xold,u,uold,ampl,taustar
@@ -512,7 +520,7 @@ subroutine ampltaustar(x,xold,u,uold,ampl,taustar)
   s=(x-xold)*sqrt(abs(u*uold))
   taustar=(u*x-uold*xold+s)/(u-uold)
   ampl=(u*uold*(x-xold)*(2*s+(x-xold)*(u+uold)))/(u-uold)**2
-  
+
 end subroutine ampltaustar
 subroutine ampltaustar2(x,xold,u,uold,ampl,taustar)
   include 'physics2.h'
@@ -521,7 +529,7 @@ subroutine ampltaustar2(x,xold,u,uold,ampl,taustar)
   s=(x-xold)*sqrt(abs(u*uold))
   taustar=(u*x-uold*xold)/(u-uold)
   ampl=(u*uold*(x-xold))/(u-uold)
-  
+
 end subroutine ampltaustar2
 real*8  function newtaustar(x1,x2,x3,f1,f2,f3)
   real*8 x1,x2,x3,f1,f2,f3
@@ -530,4 +538,3 @@ real*8  function newtaustar(x1,x2,x3,f1,f2,f3)
      2 * x1 - 2 * x2) * f2 ** 2 - 2 * f3 ** 2 * (x1 - x3)) * f1 ** 2 + &
      2 * (x2 - x3) * f3 ** 2 * f2 ** 2)
  end function newtaustar
- 

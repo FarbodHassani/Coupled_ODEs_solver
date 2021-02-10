@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use strict;
 {
     my $psi2;
@@ -30,9 +31,9 @@ use strict;
 	my($x,@y)=split(' ',$line);
 	@{$data{$x}}=@y;
 	if($x>$maxx){$maxx=$x;}
-	
+
     }
-    
+
 
     print_header();
     print "\@ with g0\n";
