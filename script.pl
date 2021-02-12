@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use strict;
 {
     my $psi2= shift || die 'psi2';
@@ -12,7 +13,6 @@ use strict;
     my $text=`perl plot_one.pl <  temp.file`;
     print $OUT "$text";
     close $OUT;
-    exec '/usr/local/grace/bin/xmgrace','-param','/home/eckmann/.grace/parameters.par', '-geometry',  '1400x1100','temp.xgr';
+    exec '/usr/local/bin/xmgrace','-param','/home/eckmann/.grace/parameters.par', '-geometry',  '1400x1100','temp.xgr';
 
-	
 }
