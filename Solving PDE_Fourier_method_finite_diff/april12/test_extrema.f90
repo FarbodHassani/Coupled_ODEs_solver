@@ -61,7 +61,7 @@ program test_fcn
   !! take u(x,0)= cos
   !!      u'(x,0)=0
   do i=1,n
-     y(i+n)=-cos(2*pi*(i-1)/n)
+     y(i+n)=cos(2*pi*(i-1)/n)
 !    y(i)=1-exp(-10*(2*pi*(i-n/2)/n)**2)
      y(i)=0d00
   enddo
