@@ -1,0 +1,16 @@
+ hatem 0.0008 0.0 50 0.5 2 0 0 3 | xmgrace - -world 0 -10 6 10
+diverges sideways
+
+hatem 0.0008 0.000025 50 0.25 2 0 0 3 | xmgrace - -world 0 -10 6 10
+divergence in center?
+
+hatem 0.0008 0.000006 50 0.1 2 0 0 3 | xmgrace - -world 0 -10 6 10
+divergence clear at 16000
+
+
+10.2?
+
+
+hatem 0.0008 0.05 50 0.5 2 0 1 3 | xmgrace -  -world 0 -10 6 10
+
+makes only wave
