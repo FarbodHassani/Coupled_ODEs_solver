@@ -1,0 +1,23 @@
+hatem 10 0.025 50 0.005 2 0 0 3 | xmgrace - -world 0 -10 6 10              #diverged at t=  8.638760439251571E-002
+hatem 5 0.025 50 0.005 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=  0.122974004861730     
+hatem 2.5 0.025 50 0.01 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=  0.176226614594515     
+hatem 1.75 0.025 50 0.01 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=  0.213055905389934     
+hatem 0.8 0.025 50 0.01 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=  0.337461978711494     
+hatem 0.4 0.025 50 0.03 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=  0.566849522948571     
+hatem 0.1 0.025 50 0.1 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=   2.19584939580306     
+hatem 0.05 0.025 50 0.1 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=   3.73146198822693     
+hatem 0.025 0.025 50 0.1 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=   6.55433115903790     
+
+hatem 0.01 0.025 50 0.5 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#diverged at t=   14.7650820438326     
+hatem 0.005 0.025 50 0.5 2 0 0 3 | xmgrace - -world 0 -10 6 10
+#touched boundary at t=   16.3651215976366     
+
