@@ -235,7 +235,7 @@ equation
 \begin{equ}\label{eq:main1}
   v_{tt}- v_{xx}=\frac{\alpha }{\beta }(v_x)^2~,
 \end{equ}
-with $v(x,t)=u(x/\sqrt{\beta } x,t)$.
+with $v(x,t)=u(x/\sqrt{\beta } ,t)$.
 When $\beta =0$, we consider the equation
 \begin{equ}\label{eq:main2}
   w_{tt}= \alpha (w_x)^2~,
@@ -243,7 +243,7 @@ When $\beta =0$, we consider the equation
 
 When $\beta \ne0$ we are interested in the interplay of two types of
 divergence, \emph{local} divergence, and \emph{wave divergence}.
-In the local divergence, $u$ will diverge near $x=0$ like a special solution of
+In the local divergence, $u$ will diverge near $x=1$ like a special solution of
 \eref{eq:main2}. In the wave divergence, there will be a divergece
 near the front of the advancing wave.
 
@@ -297,12 +297,12 @@ solution must diverge before a time \JP{how does this scale?}
 \end{equa}
 
 Rammaha's result can be paraphrased as follows. For small initial
-The point of the proofs is that, because of the wave character of
+The point of the proofs is that {\color{red}(I don't understand this sentence)}, because of the wave character of
 \eref{eq:main}, The solution will grow at the advancing front of the
-boundary. And this is shown by a Gronwall-type argument. The
+boundary {\color{red}(advancing front of the wave or boundary?)} . And this is shown by a Gronwall-type argument. The
 qualitative behavior is clearly seen in \fref{fig:front}.
 There are also inequalities which go the other way, Kovalyov
-\cite{ehat}, which shows that the solutions live at least as long as
+\cite{ehat}, which shows that the solutions live at least as long as {\color{red}(Do you physically understand what does this inequalities tell us practically?)}
 \begin{equa}
   T_* \ge  ???? \text{depending on $\epsilon $}
 \end{equa}
@@ -326,7 +326,7 @@ Eq.\eref{eq:main2} has the explicit solution
     u(x,0)&=\frac{3}{2\alpha t_0^2}x^2~,\\
     u_t(x,0)&=\frac{3}{\alpha t_0^3}x^2~.
   \end{equa}
-  Clearly, $t_0$ is then just given by
+  Clearly, $t_0$ is then just given by {\color{red}(This result is nice and ok, but it does not work when we want to have $u(x,0) = 0$, which is the initial condition that Peter considered. There they showed that the curvature of the minimum blowsup. )}
   \begin{equa}
     t_0=2\frac{u(x,0)}{u_t(x,0)}~.
   \end{equa}
@@ -344,5 +344,5 @@ u(x,t)=a(t)\left((x-t)^2+(x+t)^2\right)+b(t) x +c(t)~,
     3\frac{t0^2}{2A(t - t0)^2} + C_3 t + C_4~.
   \end{equa}
   Therefore, to this order, one can also produce arbitrary rapid local
-  divergence, just slightly shifted (by $t_0$) from the origin. 
+  divergence, just slightly shifted (by $t_0$) from the origin. {\color{red}(I don't understand the previous argument. The solution does not give us a reasonable behaviour. Because at $t=t_0$ it seems that the logarithm also has problem. )}
 \end{document}
