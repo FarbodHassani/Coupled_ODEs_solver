@@ -1,0 +1,378 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[allfiguresdraft]{draftfigure}
+%\newcommand{\pdfextension}{pdf}
+%\newcommand{\pngextension}{png}
+\usepackage{cite}
+\usepackage{natbib}
+\usepackage{breakcites}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+ \usepackage[dvipsnames]{xcolor}
+\let\rho=\varrho
+
+\def\fref#1{Fig.~\ref{#1}}
+\def\tabref#1{Table~\ref{#1}}
+\def\cref#1{Condition~\ref{#1}}
+\def\Cref#1{Corollary~\ref{#1}}
+\def\eref#1{(\ref{#1})}
+\def\sref#1{\textsection\ref{#1}}
+\def\lref#1{Lemma~\ref{#1}}
+\def\rref#1{Remark~\ref{#1}}
+\def\tref#1{Theorem~\ref{#1}}
+\def\dref#1{Definition~\ref{#1}}
+\def\pref#1{Proposition~\ref{#1}}
+\def\aref#1{Assumption~\ref{#1}}
+\def\qref#1{Subsection~\ref{#1}}
+
+\def\dref#1{Definition~\ref{#1}}
+\def\myundefined#1{\special{ps: 1 0 0 setrgbcolor}{what is #1?}%
+	\special{ps: 0 0 0 setrgbcolor}}
+\newenvironment{myitem}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\newenvironment{myenum}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+%\usepackage{sub_JP}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%\usepackage{makeidx}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{ amssymb }
+\usepackage{color}
+\usepackage{mhequ}
+\usepackage{dsfont}
+\usepackage[scanall]{psfrag}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{url}
+\usepackage{lipsum}
+%\usepackage{authblk}
+\usepackage{subfig}
+\usepackage{mhequ}
+
+\usepackage{tikz}
+\usepackage[graphics, active, tightpage]{}
+
+%\usepackage[expansion=true]{microtype}
+
+%\captionsetup[figure]{margin=2cm,font=footnotesize,labelfont=bf,labelsep=endash,textfont=rm}\captionsetup[subfigure]{margin=0pt}
+
+
+\def\thecomma{\ifx,\thenewxt \else\ifx;\thenext \else\ifx.\thenext
+	\else\ifx!\thenext \else\ifx:\thenext\else\ifx)\thenext \else \
+	\fi\fi\fi\fi\fi\fi}
+\def\condblank{\futurelet\thenext\thecomma}
+\def\ie{{\it i.e.,}\condblank}
+\def\eg{{\it e.g.,}\condblank}
+
+\numberwithin{equation}{section}
+
+
+
+\newtheorem*{oneshot}{Hypothesis~\ref{h:assumption}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition} %remarks in rm
+\newtheorem{remark}[theorem]{Remark}
+\def\HALF{{\textstyle\frac{1}{2}}}
+\def\TWOTHIRDS{{\textstyle\frac{2}{3}}}
+\def\FOURTHIRDS{{\textstyle\frac{4}{3}}}
+%\bibliographystyle{JPE}
+%\usepackage{cite}
+
+\usepackage{stmaryrd}
+\def\scomm#1#2{\ensuremath{\bigr\llbracket #1:#2\bigr\rrbracket}}
+
+\newcommand{\meq}[1]{\ensuremath{\stackrel{\scriptscriptstyle#1}{\scriptstyle
+			\sim}}}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dt}{\,\dd t}
+\newcommand{\mpart}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+
+\newcommand{\bigoh}[1]{\hat {\mathcal O}(p_2^{#1})}
+\newcommand{\bigohneg}[1]{\hat {\mathcal O}\!\left({p_2^{-#1}}\right)}
+
+\newcommand{\jp }[1]{{\color{magenta}jp*****:  #1}}
+\newcommand{\noe }[1]{{\color{red}noe:  #1}}
+\newcommand{\christophe }[1]{{\color{red}christophe: #1}}
+\def\argcdot{{\,\cdot\,}}
+
+
+\newcommand{\cA}{{\ensuremath{\mathcal A}} }
+\newcommand{\cF}{{\ensuremath{\mathcal F}} }
+\newcommand{\cP}{{\ensuremath{\mathcal P}} }
+\newcommand{\cE}{{\ensuremath{\mathcal E}} }
+\newcommand{\cH}{{\ensuremath{\mathcal H}} }
+\newcommand{\cC}{{\ensuremath{\mathcal C}} }
+\newcommand{\cN}{{\ensuremath{\mathcal N}} }
+\newcommand{\cL}{{\ensuremath{\mathcal L}} }
+\newcommand{\cT}{{\ensuremath{\mathcal T}} }
+\newcommand{\cD}{{\ensuremath{\mathcal D}} }
+\newcommand{\cU}{{\ensuremath{\mathcal U}} }
+\newcommand{\cV}{{\ensuremath{\mathcal V}} }
+\newcommand{\cS}{{\ensuremath{\mathcal S}} }
+\newcommand{\cY}{{\ensuremath{\mathcal Y}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Blackboard bolds
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bbA}{{\ensuremath{\mathbb A}} }
+\newcommand{\bbB}{{\ensuremath{\mathbb B}} }
+\newcommand{\bbC}{{\ensuremath{\mathbb C}} }
+\newcommand{\bbD}{{\ensuremath{\mathbb D}} }
+\newcommand{\bbE}{{\ensuremath{\mathbb E}} }
+\newcommand{\bbF}{{\ensuremath{\mathbb F}} }
+\newcommand{\bbG}{{\ensuremath{\mathbb G}} }
+\newcommand{\bbH}{{\ensuremath{\mathbb H}} }
+\newcommand{\bbI}{{\ensuremath{\mathbb I}} }
+\newcommand{\bbJ}{{\ensuremath{\mathbb J}} }
+\newcommand{\bbK}{{\ensuremath{\mathbb K}} }
+\newcommand{\bbL}{{\ensuremath{\mathbb L}} }
+\newcommand{\bbM}{{\ensuremath{\mathbb M}} }
+\newcommand{\bbN}{{\ensuremath{\mathbb N}} }
+\newcommand{\bbO}{{\ensuremath{\mathbb O}} }
+\newcommand{\bbP}{{\ensuremath{\mathbb P}} }
+\newcommand{\bbQ}{{\ensuremath{\mathbb Q}} }
+\newcommand{\bbR}{{\ensuremath{\mathbb R}} }
+\newcommand{\bbS}{{\ensuremath{\mathbb S}} }
+\newcommand{\bbT}{{\ensuremath{\mathbb T}} }
+\newcommand{\bbU}{{\ensuremath{\mathbb U}} }
+\newcommand{\bbV}{{\ensuremath{\mathbb V}} }
+\newcommand{\bbW}{{\ensuremath{\mathbb W}} }
+\newcommand{\bbX}{{\ensuremath{\mathbb X}} }
+\newcommand{\bbY}{{\ensuremath{\mathbb Y}} }
+\newcommand{\bbZ}{{\ensuremath{\mathbb Z}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Greek letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gga}{\gamma}            % \gg already exists...
+\newcommand{\gd}{\delta}
+\newcommand{\gep}{\varepsilon}       % \ge already exists...
+\newcommand{\gp}{\varphi}
+\newcommand{\gr}{\rho}
+\newcommand{\gvr}{\varrho}
+\newcommand{\gz}{\zeta}
+\newcommand{\gG}{\Gamma}
+\newcommand{\gP}{\Phi}
+\newcommand{\gD}{\Delta}
+\newcommand{\gk}{\kappa}
+\newcommand{\go}{\omega}
+\newcommand{\gto}{{\tilde\omega}}
+\newcommand{\gO}{\Omega}
+\newcommand{\gl}{\lambda}
+\newcommand{\gL}{\Lambda}
+\newcommand{\gs}{\sigma}
+\newcommand{\gS}{\Sigma}
+\newcommand{\gt}{\vartheta}
+\let\kappa=\varkappa
+\let\phi=\varphi
+\def\CC{{\mathcal C}}
+\def\Rsch{r_{\rm sch}}
+\def\d{{\rm d}} 
+\def\KK{{\mathcal K}}
+\def\OO{{\mathcal O}}
+\def\integer{{\mathbb Z}}
+\def\real{{\mathbb R}}
+\newcommand{\ind}{\mathbf{1}}
+\def\p2t2{{\tilde p_2^{\,2}}}
+
+\def\fhc#1{\textcolor{violet}{#1}}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\newcommand{\fhn}[1]{{\textcolor{bittersweet}{\sf[#1]}}}
+\newcommand{\edit}[2] {\textcolor{black}{\sout{#1}} {\textcolor{violet}{#2}} }
+\newcommand{\HZ}[1]{\textcolor{ForestGreen}{HZ:#1}}
+\def\JP#1{\textcolor{blue}{JPE:#1}}
+\let\epsilon=\varepsilon
+\usepackage{authblk}
+
+%%%%%%%
+%% Farbod Hassani
+%%%%%%%
+\newcommand{\HH}{\mathcal H}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\const{\text{const.}}
+
+\begin{document}
+
+\section{Divergence}
+The following is a slight adaptation of the results of Wittwer, Pan
+Shi, and Hassani.
+
+
+We consider the equation $u_{tt}=(u_x)^2$ on the real line.
+We start by writing the solution in the form
+\begin{equ}\label{eq:peter}
+  u(x,t)=f(x)+g(x)t +\int_0^t \d\tau \int_0^\tau  \d\tau'
+  (u_x(x,\tau '))^2~. 
+\end{equ}
+This corresponds to the initial conditions
+\begin{equ}
+  u(x,0)=f(x)~,\quad  u_t(x,0)=g(x)~.
+\end{equ}
+We will consider the case that $f'(0)=g'(0)=0$, and we ask how the
+solution behaves near $x=0$. Depending on the curvatures $f''(0)$ and
+$g''(0)$, the second derivative $u_{xx}(x,t)$ will, or will not
+  diverge at $x=0$. Of course, if the functions $f$ and $g$ have
+  vanishing derivatives at some other point(s) $x_0$, the same
+  discussion will apply at those points, and there can be one of these
+  points where $u_{xx}(x_0,t)$ diverges before the one at $x=0$. In
+  the following proposition, we will neglect this aspect.
+
+  
+\begin{proposition}\label{prop:peter}
+  Assume $f'(0)=g'(0)=0$. Define
+  \begin{equ}
+    c=\HALF g''(0)^2-\TWOTHIRDS f''(0)^3~. 
+  \end{equ}
+
+  Then the following cases appear:\\
+  (i) If $g''(0)>0$ then $u_{xx}(0,t)$ diverges in finite time $t_*$
+  given by
+  \begin{equ}\label{eq:div}
+    t_*=\int_{f''(0)}^\infty \frac{\d b }{\sqrt{\FOURTHIRDS b^3 +2c}}~.
+  \end{equ}\\
+  (ii) If $g''(0)<0$ then $u_{xx}(0,t)$ will converge to $b_*$ in a
+  finite time $t_*$, where
+  \begin{equ}\label{eq:conv}
+    \TWOTHIRDS b_*^3 =-c~,\text{ and }
+    t_*=\int_{b_*}^{f''(0)} \frac{\d b}{{\sqrt{\FOURTHIRDS b^3 +2c}}}~.
+      \end{equ}\\
+  (iii)  If  $g''(0)=0$, and $f''(0)\ne0$ then $u_{xx}(0,t)$ diverges
+  in finite time $t_*$ given again by \eref{eq:div}.\\
+  (iv) If $g''(0)=0$ and $f''(0)=0$ then $u_{xx}(0,t)$ stays constant.
+\end{proposition}
+\begin{remark}
+  The divergence and limit times above are standard elliptic
+  integrals. When $g''(0)=0$, the finite divergence time $t_*$ scales like $\OO(|f''(0)|^{-1/2})$.
+\end{remark}
+\begin{remark}
+  A case of a certain interest in cosmology appears when
+  $f''(0)=0$ and $g''(0)>0$.  In that case, $t_*\sim 2.547/(g''(0))^{1/6}$.
+\end{remark}
+\begin{proof}
+
+
+
+Define 
+\begin{equa}
+  a(t)= u_x(0,t)~,\quad b(t)=u_{xx}(0,t)~.
+\end{equa}
+Then \eref{eq:peter} leads to
+\begin{equa}
+  a(t)&=f'(0)+g'(0)t+2\int_0^t \d\tau \int_0^\tau  \d\tau' u_x(0,\tau ')
+  u_{xx}(0,\tau ')~,
+\end{equa}
+and therefore
+\begin{equa}\label{eq:a}
+  \ddot a(t)=2 a(t)\,b(t)~.
+\end{equa}
+Similarly,
+\begin{equa}
+  b(t)=f''(0)+g''(0)t +2\int_0^t \d\tau \int_0^\tau  \d\tau'
+\left(  (u_{xx}(0,\tau '))^2
+  +u_{x}(0,\tau ')u_{xxx}(0,\tau ')\right)~,
+\end{equa}
+From this, we deduce
+\begin{equa}[eq:b]
+  \ddot b(t)&=
+  2(u_{xx}(0,t))^2
+  +2u_{x}(0,t)u_{xxx}(0,t)\\
+  &= 2b(t)^2 + 2a(t)u_{xxx}(0,t)~.
+\end{equa}
+Since we assume $f'(0)=g'(0)=0$ we find from \eref{eq:a} that
+$a(t)=0$ for all $t$ for which $b(t)$ is finite. Therefore,
+\eref{eq:b} reduces to
+\begin{equa}\label{eq:bdd}
+\ddot b(t)=2(b(t))^2~.  
+\end{equa}
+We will discuss this equation. For computing the divergence time, it
+is useful to transform the equation as follows: Multiplying by $\dot b$
+leads to
+\begin{equa}
+  \HALF \frac{\d}{\d t}(\dot b(t))^2 = \TWOTHIRDS \frac{\d }{\d
+  t}b(t)^3~,
+\end{equa}
+or, for some $c$,
+\begin{equa}\label{energy}
+  \HALF(\dot b(t))^2  = \TWOTHIRDS(b(t))^3 +c~,
+\end{equa}
+Note that looking at $t=0$ we find
+\begin{equ}\label{eq:c}
+  c=\HALF \dot b(0)^2 -\TWOTHIRDS b(0)^3= \HALF  g''(0)^2 -\TWOTHIRDS f''(0)^3~,
+\end{equ}
+which is the definition in the proposition.
+
+
+
+We consider first the case where
+$g''(0)>0$. Then $\dot b(0)>0$ and from \eref{energy} we find that
+\begin{equa}\label{eq:dotb}
+  \dot b(t)  =\sqrt{\FOURTHIRDS (b(t))^3 +2c}~,
+  \end{equa}
+which means $b$ is increasing. Using standard techniques, we get 
+\begin{equa}
+  \d t  = \frac{\d b}{\sqrt{\FOURTHIRDS b^3 +2c}}~.
+\end{equa}
+From \eref{eq:dotb} we deduce 
+the divergence time $t_*$,
+\begin{equation}\label{eq:t2}
+  t_*=\int_{b(0)}^\infty \frac{\d b }{\sqrt{\FOURTHIRDS b^3 +2c}}~.
+\end{equation}
+This proves \eref{eq:div}.
+
+The case $g''(0)<0$ is handled similarly, but now \eref{eq:dotb} is
+replaced by 
+\begin{equa}\label{eq:dotbminus}
+  \dot b(t)  =-\sqrt{\FOURTHIRDS (b(t))^3 +2c}~,
+\end{equa}
+This means that $b$ is decreasing until the square root in
+\eref{eq:dotbminus} vanishes. This defines $b_*$, and then \eref{eq:t2} is replaced by
+\begin{equ}
+  t_*=\int_{b_*}^{f''(0)} \frac{\d b }{\sqrt{\FOURTHIRDS b^3 +2c}}~.
+\end{equ}
+This leads to \eref{eq:conv}.
+
+The assertions under (iii) are a simple variant of (i) and (ii). The
+difference is that because $g''(0)=0$, we find now that $c=-\TWOTHIRDS
+f''(0)^3$, and $c\ne0$ by the assumption $f''(0)\ne0$.
+The only remaining case is (iv), $g''(0)=f''(0)=0$, which directly
+leads to $b(t)=b(0)$ by \eref{eq:bdd}.
+\end{proof}
+
+\end{document}

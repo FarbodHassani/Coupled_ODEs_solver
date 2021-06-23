@@ -1,0 +1,731 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[allfiguresdraft]{draftfigure}
+%\newcommand{\pdfextension}{pdf}
+%\newcommand{\pngextension}{png}
+\usepackage{cite}
+\usepackage{natbib}
+\usepackage{breakcites}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\let\rho=\varrho
+
+\def\fref#1{Fig.~\ref{#1}}
+\def\tabref#1{Table~\ref{#1}}
+\def\cref#1{Condition~\ref{#1}}
+\def\Cref#1{Corollary~\ref{#1}}
+\def\eref#1{(\ref{#1})}
+\def\sref#1{\textsection\ref{#1}}
+\def\lref#1{Lemma~\ref{#1}}
+\def\rref#1{Remark~\ref{#1}}
+\def\tref#1{Theorem~\ref{#1}}
+\def\dref#1{Definition~\ref{#1}}
+\def\pref#1{Proposition~\ref{#1}}
+\def\aref#1{Assumption~\ref{#1}}
+\def\qref#1{Subsection~\ref{#1}}
+
+\def\dref#1{Definition~\ref{#1}}
+\def\myundefined#1{\special{ps: 1 0 0 setrgbcolor}{what is #1?}%
+	\special{ps: 0 0 0 setrgbcolor}}
+\newenvironment{myitem}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\newenvironment{myenum}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+%\usepackage{sub_JP}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%\usepackage{makeidx}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{ amssymb }
+\usepackage{color}
+\usepackage{mhequ}
+\usepackage{dsfont}
+\usepackage[scanall]{psfrag}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{url}
+\usepackage{lipsum}
+%\usepackage{authblk}
+\usepackage{subfig}
+\usepackage{mhequ}
+
+\usepackage{tikz}
+\usepackage[graphics, active, tightpage]{}
+
+%\usepackage[expansion=true]{microtype}
+
+%\captionsetup[figure]{margin=2cm,font=footnotesize,labelfont=bf,labelsep=endash,textfont=rm}\captionsetup[subfigure]{margin=0pt}
+
+
+\def\thecomma{\ifx,\thenewxt \else\ifx;\thenext \else\ifx.\thenext
+	\else\ifx!\thenext \else\ifx:\thenext\else\ifx)\thenext \else \
+	\fi\fi\fi\fi\fi\fi}
+\def\condblank{\futurelet\thenext\thecomma}
+\def\ie{{\it i.e.,}\condblank}
+\def\eg{{\it e.g.,}\condblank}
+
+\numberwithin{equation}{section}
+
+
+
+\newtheorem*{oneshot}{Hypothesis~\ref{h:assumption}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition} %remarks in rm
+\newtheorem{remark}[theorem]{Remark}
+\def\HALF{{\textstyle\frac{1}{2}}}
+%\bibliographystyle{JPE}
+%\usepackage{cite}
+
+\usepackage{stmaryrd}
+\def\scomm#1#2{\ensuremath{\bigr\llbracket #1:#2\bigr\rrbracket}}
+
+\newcommand{\meq}[1]{\ensuremath{\stackrel{\scriptscriptstyle#1}{\scriptstyle
+			\sim}}}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dt}{\,\dd t}
+\newcommand{\mpart}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+
+\newcommand{\bigoh}[1]{\hat {\mathcal O}(p_2^{#1})}
+\newcommand{\bigohneg}[1]{\hat {\mathcal O}\!\left({p_2^{-#1}}\right)}
+
+\newcommand{\jp }[1]{{\color{magenta}jp*****:  #1}}
+\newcommand{\noe }[1]{{\color{red}noe:  #1}}
+\newcommand{\christophe }[1]{{\color{red}christophe: #1}}
+\def\argcdot{{\,\cdot\,}}
+
+
+\newcommand{\cA}{{\ensuremath{\mathcal A}} }
+\newcommand{\cF}{{\ensuremath{\mathcal F}} }
+\newcommand{\cP}{{\ensuremath{\mathcal P}} }
+\newcommand{\cE}{{\ensuremath{\mathcal E}} }
+\newcommand{\cH}{{\ensuremath{\mathcal H}} }
+\newcommand{\cC}{{\ensuremath{\mathcal C}} }
+\newcommand{\cN}{{\ensuremath{\mathcal N}} }
+\newcommand{\cL}{{\ensuremath{\mathcal L}} }
+\newcommand{\cT}{{\ensuremath{\mathcal T}} }
+\newcommand{\cD}{{\ensuremath{\mathcal D}} }
+\newcommand{\cU}{{\ensuremath{\mathcal U}} }
+\newcommand{\cV}{{\ensuremath{\mathcal V}} }
+\newcommand{\cS}{{\ensuremath{\mathcal S}} }
+\newcommand{\cY}{{\ensuremath{\mathcal Y}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Blackboard bolds
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bbA}{{\ensuremath{\mathbb A}} }
+\newcommand{\bbB}{{\ensuremath{\mathbb B}} }
+\newcommand{\bbC}{{\ensuremath{\mathbb C}} }
+\newcommand{\bbD}{{\ensuremath{\mathbb D}} }
+\newcommand{\bbE}{{\ensuremath{\mathbb E}} }
+\newcommand{\bbF}{{\ensuremath{\mathbb F}} }
+\newcommand{\bbG}{{\ensuremath{\mathbb G}} }
+\newcommand{\bbH}{{\ensuremath{\mathbb H}} }
+\newcommand{\bbI}{{\ensuremath{\mathbb I}} }
+\newcommand{\bbJ}{{\ensuremath{\mathbb J}} }
+\newcommand{\bbK}{{\ensuremath{\mathbb K}} }
+\newcommand{\bbL}{{\ensuremath{\mathbb L}} }
+\newcommand{\bbM}{{\ensuremath{\mathbb M}} }
+\newcommand{\bbN}{{\ensuremath{\mathbb N}} }
+\newcommand{\bbO}{{\ensuremath{\mathbb O}} }
+\newcommand{\bbP}{{\ensuremath{\mathbb P}} }
+\newcommand{\bbQ}{{\ensuremath{\mathbb Q}} }
+\newcommand{\bbR}{{\ensuremath{\mathbb R}} }
+\newcommand{\bbS}{{\ensuremath{\mathbb S}} }
+\newcommand{\bbT}{{\ensuremath{\mathbb T}} }
+\newcommand{\bbU}{{\ensuremath{\mathbb U}} }
+\newcommand{\bbV}{{\ensuremath{\mathbb V}} }
+\newcommand{\bbW}{{\ensuremath{\mathbb W}} }
+\newcommand{\bbX}{{\ensuremath{\mathbb X}} }
+\newcommand{\bbY}{{\ensuremath{\mathbb Y}} }
+\newcommand{\bbZ}{{\ensuremath{\mathbb Z}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Greek letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gga}{\gamma}            % \gg already exists...
+\newcommand{\gd}{\delta}
+\newcommand{\gep}{\varepsilon}       % \ge already exists...
+\newcommand{\gp}{\varphi}
+\newcommand{\gr}{\rho}
+\newcommand{\gvr}{\varrho}
+\newcommand{\gz}{\zeta}
+\newcommand{\gG}{\Gamma}
+\newcommand{\gP}{\Phi}
+\newcommand{\gD}{\Delta}
+\newcommand{\gk}{\kappa}
+\newcommand{\go}{\omega}
+\newcommand{\gto}{{\tilde\omega}}
+\newcommand{\gO}{\Omega}
+\newcommand{\gl}{\lambda}
+\newcommand{\gL}{\Lambda}
+\newcommand{\gs}{\sigma}
+\newcommand{\gS}{\Sigma}
+\newcommand{\gt}{\vartheta}
+\let\kappa=\varkappa
+\let\phi=\varphi
+\def\CC{{\mathcal C}}
+\def\Rsch{r_{\rm sch}}
+\def\d{{\rm d}} 
+\def\KK{{\mathcal K}}
+\def\OO{{\mathcal O}}
+\def\integer{{\mathbb Z}}
+\def\real{{\mathbb R}}
+\newcommand{\ind}{\mathbf{1}}
+\def\p2t2{{\tilde p_2^{\,2}}}
+
+\def\fhc#1{\textcolor{violet}{#1}}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\newcommand{\fhn}[1]{{\textcolor{bittersweet}{\sf[#1]}}}
+\newcommand{\edit}[2] {\textcolor{black}{\sout{#1}} {\textcolor{violet}{#2}} }
+\def\JP#1{\textcolor{blue}{JPE:#1}}
+\let\epsilon=\varepsilon
+\usepackage{authblk}
+
+%%%%%%%
+%% Farbod Hassani
+%%%%%%%
+\newcommand{\HH}{\mathcal H}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\const{\text{const.}}
+
+\begin{document}
+We consider the equations
+\begin{equ}\label{eq:main}
+  u_{tt}-\beta u_{xx}=\alpha (u_x)^2~,
+\end{equ}
+for $t\ge0$ and $x\in\real$.
+When $\beta\ne0$ we can change variables to obtain a normalized
+equation
+\begin{equ}\label{eq:main1}
+  v_{tt}- v_{xx}=\frac{\alpha }{\beta }(v_x)^2~,
+\end{equ}
+with $v(x,t)=u(x/\sqrt{\beta } ,t)$.
+When $\beta =0$, we consider the equation
+\begin{equ}\label{eq:main2}
+  w_{tt}= \alpha (w_x)^2~,
+\end{equ}
+
+When $\beta \ne0$ we are interested in the interplay of two types of
+divergence, \emph{local} divergence, and \emph{wave divergence}.
+In the local divergence, $u$ will diverge near $x=1$ like a special solution of
+\eref{eq:main2}. In the wave divergence, there will be a divergence
+near the front of the advancing wave.
+
+We illustrate the phenomenology with two numerical simulations:
+\begin{figure}[h!]
+  \includegraphics[width=1\textwidth]{peter.png}
+  \caption{{\bf{Local divergence}}:The parameters of \eref{eq:main} are $\alpha=5$ and $\beta
+    =0.025$ with initial condition
+    $u(x,0)=-\exp(-30(x-1)^2)$, $u_t(x,0)=0$. (Numerically we take
+    periodic boundary conditions.) Note that the second derivative
+    diverges in finite time. The simulation corresponds to $\alpha
+    /\beta =200$.
+  }\label{fig:peter}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \includegraphics[width=1\textwidth]{divergence.png}
+  \caption{{\bf{Wave divergence}}:The nature of divergence ``at infinity.'' As time goes on,
+    the support of the function spreads, and the function at the edge
+    gets steeper, until the derivative will diverge at some time
+    $T_*$.
+    The simulation is for the variant equation \eref{eq:main2}, with
+    $\alpha=0.01$ and $\beta =0.025$ and initial condition
+    $u(x,0)=-\exp(-30(x-1)^2)$, $u_x(x,0)=0$. (Numerically we take
+    periodic boundary conditions.) Now, $\alpha /\beta =0.4$
+  }\label{fig:front}
+\end{figure}
+
+We expect that, for fixed $\beta $ a transition between local
+divergence and wave divergence will appear. The mathematical situation
+for the wave divergence can be explained by an adaptation of the work
+of Rammaha \cite{rammaha}. He shows that \eref{eq:main1} will diverge
+in finite time under quite weak conditions: We adapt the proof to the
+1d case in in \tref{thm:t1},  which will be given at the end.
+
+Take as initial conditions smooth
+functions $u(x,0)=f(x)$ and $u_t(x,0)=g(x)$, both with compact support
+and assume the support is in $|x|<X$. Fix an $X_0<X$ and define
+\begin{equa}
+  \epsilon = \HALF\int_{x>X_0} (f(x) + (x-X_0) g(x)) \d x~.
+\end{equa}
+with
+\begin{equa}
+  M(x)= \HALF \left(f(x) + \int_x^X g(\xi)\d\xi\right)>0
+\end{equa}
+for all $x\in(X_0,X)$.
+We show that the 
+solution must diverge before a time
+$  T_* $. We do not aim to get the best possible bound on this time.
+
+Rammaha's result can be paraphrased as follows. 
+The point of the proofs is that because of the wave character of
+\eref{eq:main}, the solution will grow at the advancing front of the
+wave. The
+qualitative behavior is clearly seen in \fref{fig:front}.
+
+This discussion settles the question of what must happen at the
+advancing fronts. However, there can be a local divergence which can
+appear earlier in the ``center'' between the waves.
+
+
+
+
+We will now argue that for $\beta =0$ there are (admittedly unbounded)
+initial conditions for which local divergence will appear in
+arbitrarily short time. In particular, this time can be shorter than
+the wave divergence time.
+
+
+
+
+This divergence is modeled most simply when $\beta =0$. In this case,
+taking the (unbounded) initial condition $u(x,0)=A x^2$, 
+Eq.\eref{eq:main2} has the explicit solution
+  \begin{equa}
+    u(x,t)&=\frac{3}{2\alpha (t-t_0)^2}x^2~,\\
+  \end{equa}
+  when
+  \begin{equa}
+    u(x,0)&=\frac{3}{2\alpha t_0^2}x^2~,\\
+    u_t(x,0)&=\frac{3}{\alpha t_0^3}x^2~.
+  \end{equa}
+  Clearly, $t_0$ is then just given by {\color{red}(This result is
+    nice and ok, but it does not work when we want to have $u(x,0) =
+    0$, which is the initial condition that Peter considered. There
+    they showed that the curvature of the minimum blowsup. )}\JP{ need
+    to discuss what to do here}
+
+
+  \JP{probably omit what comes next}
+  \begin{equa}
+    t_0=2\frac{u(x,0)}{u_t(x,0)}~.
+  \end{equa}
+  So we can make $t_0$ arbitrarily short as announced.
+Finally, in perturbation theory (up to order $x^4$ included) one can
+solve \eref{eq:main1} explicitly (when $\alpha /\beta =1$) in the form
+    \begin{equa}
+u(x,t)=a(t)\left((x-t)^2+(x+t)^2\right)+b(t) x +c(t)~,
+  \end{equa}
+  with
+  \begin{equa}
+    a(t)&=\frac{3}{4A(t-t_0)^2}~,\\
+    b(t)&=C_1(t-t_0)^3+C_2\frac{1}{(t-t_0)^2}~,\\
+    c(t)&=3\frac{\log(t_0-t)}{A} - 3\frac{t_0}{A (t - t_0)} -
+    3\frac{t_0^2}{2A(t - t_0)^2} + C_3 t + C_4~.
+  \end{equa}
+  Therefore, to this order, one can also produce arbitrary rapid local
+  divergence, just slightly shifted (by $t_0$) from the origin. 
+{\color{red}(I don't understand the previous argument. The solution
+  does not give us a reasonable behaviour. Because at $t=t_0$ it seems
+  that the logarithm also has problem. )}
+
+
+
+
+
+\section{Wave divergence}
+
+  Consider the equation
+  \begin{equ}
+    u_{tt}-u_{xx}= u_x^2~.
+  \end{equ}
+  Assume the initial conditions are
+  \begin{equa}
+    u(x,0)&=f(x)~,\quad
+    u_t(x,0)=g(x)~,
+  \end{equa}
+  with $f$, $g$ having support in $|x|<X$.
+  Define, for $x>0$,
+  \begin{equ}
+    M(x)=\HALF f(x)+\HALF \int_x^X g(\xi)\d\xi~.
+  \end{equ}
+\begin{theorem}\label{thm:t1}
+Assume  there is an $X_0\in (0,X)$ for which $M(x)\ge0$ for all
+  $x\in(X_0,X)$,
+  and also
+  \begin{equ}
+    \int_{X_0}^X M(\xi)\d \xi \equiv\epsilon >0~.
+  \end{equ}
+  Then the local existence time is {\bf{finite}}.
+  
+ 
+\end{theorem}
+\begin{proof} It suffices to consider the situation where $u(x,0)$ and
+  $u_t(x,0)$ have
+support in $|x|\le X$, but  we will consider only the side of positive
+$x$ in the sequel. Clearly, $u(x,t)=0$ for $x\ge t+X$.
+One estimates now the function
+\begin{equ}
+  H(t)=\int_{X_1}^t (t-\tau )\int _{\tau +X_0}^{\tau +X} u(\xi,\tau
+  )\d\xi \,\d\tau ~.
+\end{equ}
+Here, $X_1=(X-X_0)/2$.
+From the definition, we get
+\begin{equ}\label{eq:hpp}
+  H''(t)=\int _{t +X_0}^{t +X} u(\xi,t)\d\xi~.
+\end{equ}
+One has the explicit formula
+\begin{equ}\label{eq:uxt}
+  u(x,t)=u_0(x,t)+\HALF\int_0^t \int_{x-t+\tau }^{x+t-\tau }
+  u_x(\xi,\tau )^2 \d\tau \,\d\xi~,
+\end{equ}
+with the ``free evolution''
+\begin{equ}
+  u_0(x,t)=\HALF\left(f(x-t)+f(x+t)\right)+\HALF \int_{x-t}^{x+t} g(\xi)\d\xi~.
+  \end{equ}
+When $x\ge t+X_0$ and $X\ge t \ge X_1$,
+then $x+t\ge X$ and therefore $f(x+t)=0$ and therefore, in this region,
+\begin{equ}
+  u_0(x,t)=\HALF f(x-t) + \HALF\int_{x
+    -t}^{x+t} g(\xi) \d \xi~.
+\end{equ}
+We get from \eref{eq:uxt} and \eref{eq:hpp},
+\begin{equ}
+  H''(t)=G_0(t)+G_1(t)~,
+\end{equ}
+with
+\begin{equ}
+  G_0(t)= \int_{t+X_0}^{t+X}  u_0(x,t)\d x = \int_{t+X_0}^{t+X}
+  M(x-t)\d x=\int_{X_0}^X M(x)\d x= \epsilon~,
+\end{equ}
+by the definition of $\epsilon $ in \tref{thm:t1}.
+The nonlinearity leads to
+\begin{equ}
+  G_1(t)= \int_{t+X_0}^{t+X}\d\xi \int_{0}^{t}\d\tau
+  \int_{\xi-t+\tau}^{\xi+t-\tau}\d\eta \,u_x(\eta,\tau)^2~.
+\end{equ}
+In \lref{lem:3} below, we show
+\begin{equa}\label{eq:lem2}
+  G_1(t)\ge\frac{1}{t+X_0}\int_{X_1}^t\d\tau  \int_{\tau +X_0}^{\tau +X} \d\xi
+  \,(t-\tau )\,(\xi-\tau -X_0) \,u_x(\xi,\tau)^2~.
+\end{equa}
+
+
+
+We use now the Schwarz inequality in the form
+\begin{equ}
+  \int \phi \psi = \int \phi^{1/2} (\phi^{1/2}\psi)\le \left(\int
+  \phi\psi^2\right)^{1/2} \, (\int \phi)^{1/2}~,
+\end{equ}
+with $\phi=(t-\tau
+)(\xi-\tau -X_0) $ and $\psi=u_x$. This leads to
+\begin{equ}
+  G_1(t)\ge F^2(t)/J(t)~,
+  \end{equ}
+with
+\begin{equ}
+F(t)=\int_{X_1}^t \int_{\tau +X_0}^{\tau +X} (t-\tau
+  )(\xi-\tau -X_0) u_x(\xi,\tau )\d \xi \,\d\tau  
+\end{equ}
+and
+\begin{equ}
+  J(t)=\int_{X_1}^t \int_{\tau +X_0}^{\tau +X}  (t-\tau
+  )(\xi-\tau -X_0)\d\tau \,\d\xi=\frac{(X-X_0)^2(t-X_1)^2}{4}~.
+\end{equ}
+If we integrate the expression for $F$ by parts (in $\xi$),
+we get
+\begin{equ}
+  F(t)=-\int_{X_1}^t \int_{\tau +X_0}^{\tau +X} (t-\tau
+  ) u(\xi,\tau )\d \xi \,\d\tau  = -H(t)~.
+\end{equ}
+Therefore, we find finally
+\begin{equ}\label{eq:final}
+  H''(t)\ge G_0(t)+ \frac{H(t)^2}{J(t)}~.
+\end{equ}
+Fix now $T$ and we will show that the solution cannot exist
+for
+$T>T_*$, where $T_*$ will be computed in the proof:
+We use here Lemma 1 from \cite{rammaha2} adapted to the 1d case.
+The ingredients are that
+\begin{equ}\label{eq:eps}
+  H''(t)\ge G_0(t)=\epsilon >0~,
+\end{equ}
+for all $t\ge0$ and
+\begin{equ}\label{eq:7}
+  H''(t)\ge G_1(t)\ge 4\frac{H(t)^2}{(X-X_0)^2 (t-X_1)^2}~,
+\end{equ}
+for $t>X_1$ (as long as the solution exists). Furthermore, $H(X_1)=H'(X_1)=0$.
+
+Fix now $T_1=2(X_1+1)$. Then, for $t>T_1$, we have $t-X_1>\HALF(t+1)$,
+and we replace from now on \eref{eq:7} by the simpler
+\begin{equ}\label{eq:Hpp}
+  H''(t) \ge K_1 \frac{H(t)^2}{(t+1)^2}~, \text{ for } t>T_1~,
+\end{equ}
+with $K_1=16/(X-X_0)^2$.
+
+
+
+The idea is now to deduce from \eref{eq:eps} and \eref{eq:Hpp} an
+inequality of the form
+\begin{equ}\label{eq:diverge}
+H'(t)\ge C H^{1+\delta}(t)\text{  for  }t>T_*\text{ with
+}\delta >0~.
+\end{equ}
+This implies divergence in finite time,
+when $H(T_0)>0$. Indeed, if $H(T_0)=c^{-1/\delta }>0$, then
+\begin{equ}\label{eq:diverge2}
+  H(t)=\frac{1}{(c-C\delta (t-T_0))^{1/\delta }}~.
+\end{equ}
+One can reformulate this as follows:\JP{But we dont know $H(T_0)$...}
+If $H(T_0)=A$ and $A\le 1/e$, the optimizing $\delta $ in
+\eref{eq:diverge2} is $\le1$ and therefore
+we find that the divergence time is proportional to $-\log(A)$.
+Note that, if, for example, the leading edge of the support (at $x=0$) is like
+$|x|^2$  for $x<0$, then this will lead to earlier divergence compared
+to $|x|^3$.
+
+We now begin the proof proper.
+If $B>0$, we will use repeatedly the inequality
+\begin{equ}\label{eq:half}
+  \frac{x}{x+B}\ge \HALF ~, \text{ for all } x\ge B~.
+\end{equ}
+From \eref{eq:eps} we find
+\begin{equ}\label{eq:181}
+  H(t)\ge K_2 \epsilon t^2~, \text{ for all } t>0~,
+\end{equ}
+with $K_2=\HALF$.
+
+Substituting \eref{eq:181} into \eref{eq:Hpp}, we get
+\begin{equ}\label{eq:182}
+  H''(t)\ge K_1K_2\epsilon  H(t) \frac{t^2}{(t+1)^2}\ge K_3 \epsilon
+  H(t)~, \text { when } t>T_2~,
+\end{equ}
+for some large enough $T_2=\const T_1$, not depending on $\epsilon $.
+Since $H'(t)>0$, we can multiply \eref{eq:182} by $H'$ and write it as
+\begin{equ}
+ \frac{\d}{\d t}(H'(t)^2)\ge K_3 \epsilon  \frac{\d}{\d t}(H(t)^2) \text { when } t>T_2~.
+\end{equ}
+We integrate from $T_2$ to $t$ and obtain
+\begin{equ}
+  H'(t)^2 \ge  K_3\epsilon \left( H(t)^2+H'(T_2)^2-H(T_2)^2\right)=
+K_3\epsilon H(t)^2 +K_4\epsilon 
+  \text { when } t>T_2~,
+\end{equ}
+for some $K_4$.
+From \eref{eq:eps}, we conclude that for large enough $T_3$, one has
+\begin{equ}
+K_3\epsilon H(t)^2 +K_4\epsilon \ge K_5\epsilon  H(t)^2~,\text{ when } t>T_3~.
+\end{equ}
+Combining the last two equations we find
+\begin{equ}
+  H'(t)\ge K_5^{1/2} \epsilon ^{1/2}  H(t),~
+  \text { when } t>T_3~.
+\end{equ}
+Integrating from $T_3$ to $t$ this leads to
+\begin{equ}\label{eq:exp}
+  H(t)\ge H(T_3)\exp\left(K_6 \epsilon ^{1/2} (t-T_3)\right)\ge
+  H(T_3)\exp\left(\HALF K_6 \epsilon ^{1/2}t\right)~,\text{ when }t>2T_3, 
+\end{equ}
+with $K_6=K_5^{1/2}$.
+Substituting again into \eref{eq:Hpp}, we get
+\begin{equ}
+  H''(t) \ge K_7 H(t)^{1+\delta } ~,\text{ for any }\delta >0~,
+\end{equ}
+since the exponential in \eref{eq:exp} (to the power $\delta>0 $) will
+dominate the factor $(t+1)^{-2}$ of \eref{eq:Hpp}, if only $t$ is
+sufficiently large. (Note that $K_7$ and this new minimal time $T_4$ will
+depend on $\delta $.)
+We now multiply the last equation by $H'$ and we get
+\begin{equ}
+  \frac{\d}{\d t}(H'(t)^2) \ge  \frac{2K_7}{2+\delta  }\frac{\d}{\d
+    t}\left( H(t)^{2+\delta } \right)~,\text{ for } t>T_4~.
+\end{equ}
+Integrating from $T_4$ to $t$
+we find
+\begin{equ}
+  H'(t)^2 \ge  \frac{2K_1}{2+\delta  } \left(H(t)^{2+\delta
+  }-H(T_{4})^{2+\delta }\right)+H'(T_{4})^2~.
+\end{equ}
+Taking square roots on both sides and choosing $T_*$
+sufficiently larger than $T_4$, we finally arrive at \eref{eq:diverge}
+from which we see that there is divergence in finite time, as in \eref{eq:diverge2}.
+\end{proof}
+
+We still need to show the inequality \eref{eq:lem2}.
+\begin{lemma}\label{lem:3}
+  Let
+ \begin{equa}
+  G_1(t)&= \int_{t+X_0}^{t+X}\d x \int_{0}^{t}\d\tau
+  \int_{x-t+\tau}^{x+t-\tau}\d\xi \,u_x(\xi,\tau)^2~.
+ \end{equa}
+Let $X>X_0>0$, and assume $u_x(x,t)=0$ for all $|x|\ge t+X$, $0\le
+t\le T$. Then one has for all $T\ge t\ge X_1=(X-X_0)/2$, the inequality
+ \begin{equa}\label{eq:ineq}
+  G_1(t)\ge\frac{1}{t+X_0}\int_{X_1}^t\d\tau  \int_{\tau +X_0}^{\tau +X} \d\xi
+  \,(t-\tau )\,(\xi-\tau -X_0) \,u_x(\xi,\tau)^2~.
+\end{equa}
+\end{lemma}
+\begin{proof}
+\begin{equa}
+  G_1(t)&= \int_{t+X_0}^{t+X}\d x \int_{0}^{t}\d\tau
+  \int_{x-t+\tau}^{x+t-\tau}\d\xi \,u_x(\xi,\tau)^2\\
+&=  \int_{0}^{t}\d\tau\int_{t+X_0}^{t+X}\d x
+  \int_{x-t+\tau}^{x+t-\tau}\d\xi \,u_x(\xi,\tau)^2~.\\
+\end{equa}
+Note that for $t\ge X_1$, the function $u_x(\xi,\tau )$ vanishes for
+$\xi\ge\tau +X$. Therefore, since also $2t-\tau \ge \tau $, we find
+\begin{equa}
+&\int_{0}^{t-X_1}\d\tau\int_{t+X_0}^{t+X}\d x
+  \int_{x-t+\tau}^{x+t-\tau}\d\xi \,u_x(\xi,\tau)^2~\\
+  =&\int_{0}^{t-X_1}\d\tau
+  \int_{\tau +X_0}^{2t+X-\tau }\d \xi
+  \int_{t+X_0}^{\xi+t-\tau}\d x \,u_x(\xi,\tau)^2\\
+  =&\int_{0}^{t-X_1}\d\tau
+  \int_{\tau +X_0}^{\tau +X }\d \xi\,u_x(\xi,\tau)^2
+  \int_{t+X_0}^{\xi+t-\tau}1\,\d x~.\\
+\end{equa}
+Similarly,
+\begin{equa}
+  &\int_{t-X_1}^t \d \tau \int_{t+X_0}^{t+X}\d x
+  \int_{x-t+\tau}^{x+t-\tau}\d\xi \,u_x(\xi,\tau)^2 \\
+= &\int_{t-X_1}^{t}\d \tau  \int_{\tau +X_0}^{2t-\tau +X_0}\d\xi
+  \,u_x(\xi,\tau)^2\int_{t+X_0}^{\xi+t-\tau } 1 \d
+  x\\
+  &+\int_{t-X_1}^{t}\d \tau  \int_{2t-\tau +X_0}^{\tau +X}\d\xi
+  \,u_x(\xi,\tau)^2\int_{\xi-t+\tau }^{\xi+t-\tau } 1 \d x~.\\
+\end{equa}
+Therefore, when $t\ge X_1$ the function $G_1$ can be decomposed as
+\begin{equa}
+  G_1(t)&= \int_0^{t-X_1}\d \tau  \int_{\tau +X_0}^{\tau +X}\d\xi
+  \,u_x(\xi,\tau)^2\int_{t+X_0}^{\xi+t-\tau } 1 \d x\\
+  &+\int_{t-X_1}^{t}\d \tau  \int_{\tau +X_0}^{2t-\tau +X_0}\d\xi
+  \,u_x(\xi,\tau)^2\int_{t+X_0}^{\xi+t-\tau } 1 \d
+  x\\
+  &+\int_{t-X_1}^{t}\d \tau  \int_{2t-\tau +X_0}^{\tau +X}\d\xi
+  \,u_x(\xi,\tau)^2\int_{\xi-t+\tau }^{\xi+t-\tau } 1 \d x~.\\
+\end{equa}
+The integrals over $\d x$ lead to
+\begin{equa}
+  G_1(t)&= \int_0^{t-X_1}\d\tau \int_{\tau +X_0}^{\tau +X}\d\xi\,\,(\xi-\tau -X_0) 
+  \, u_x(\xi,\tau )^2\\
+  &+\int_{t-X_1}^{t}\d \tau\int_{\tau +X_0}^{2t-\tau +X_0}\d\xi\, (\xi-\tau -X_0) 
+   \,u_x(\xi,\tau)^2\\
+   &+\int_{t-X_1}^{t}\d \tau \,2(t-\tau ) \int_{2t-\tau +X_0}^{\tau +X}\d\xi\,
+  \,u_x(\xi,\tau)^2~.\\
+\end{equa}
+Since
+\begin{equa}
+  t-\tau \le t+X_0 ~,\text { and\   }\  \xi-\tau -X_0 \le t+X_0~,
+\end{equa}
+and both are positive,
+we find finally that
+\begin{equa}
+  G_1(t)\ge\frac{1}{t+X_0}\int_{X_1}^t\d\tau  \int_{\tau +X_0}^{\tau +X} \d\xi
+  \,(t-\tau )\,(\xi-\tau -X_0) \,u_x(\xi,\tau)^2~.
+\end{equa}
+\end{proof}
+\section{Wittwer}
+Apart from the obviously diverging solution (9) (in PRL) there is a
+more general argument which shows that, locally, for any non-trivial initial
+condition (??) the solution of
+$u_{tt}=(u_x)^2$ will blow up in finite time. This is seen as follows:
+Differentiate the equation twice w.r.t.~$x$, and this leads to
+\begin{equa}
+  (u_{tt}) &= (u')^2~,\\
+  (u_{tt})' &= 2 u' u'',\\
+  (u_{tt})'' &= 2 (u'')^2 +2 u' u'''~.
+\end{equa}
+Define now $a(t)=u'(0,t)$ and $b(t)=u''(0,t)$. Then if $x=0$ is an
+extremum of $u$ at $t=0$ we have $a(0)=\dot a(0)=0$ and furthermore
+$\ddot a = 2 a \cdot b$ (by the second equation above). Obviously, we have $a(t)=0$ for all $t$ for
+which the solution exists, and this means that the extremum does not
+move away from $x=0$. But the equation for $b$ is more
+interesting. Since $\ddot b= 2 b^2+0$, we find
+\begin{equ}
+  \ddot b\dot b= 2 b^2 \dot b~,
+\end{equ}
+and therefore
+\begin{equ}
+  \frac{1}{2} (\dot b)= \frac{2}{3} b^3 + c~.
+\end{equ}
+This diverges in finite time, as soon as $b(0)$ and $\dot b(0)$ do not
+vanish simultaneously. And the divergence time is an elliptic integral
+of the form ???
+\begin{equ}
+  \int_{b(0)}^\infty \frac{\d b}{\sqrt{\frac{4}{3}+x}~},
+\end{equ}
+(I think $x=\dot b(0)$ or something like that...)\\
+
+{\color{red}{Let's discuss whether an extremum at initial time would remain an extremum at all times?}}
+
+
+Let's try to show that if a point is an extremum it always remain an extremum! To do so we use the following equation:
+\begin{equa}
+ a''(t) &= 2a(t)b(t) ~,\\
+% b''(t) &= 2  b ^2 +2 a c  ~ ,
+\end{equa}
+Where $a(t) = u_x(t)|_{x_0}$, $b(t) =u_{xx}(t)|_{x_0}$. At time $t=0$ since the point is an extremum so $a_{tt}(t)|_{t=0} = a(t=0) = 0$, if ${a}_t(t)|_{t=0} != 0$ the extrema can move in space indeed, cant?
+ \\
+ 
+ {\color{red}{Now assume we have an extremum at point $x=x_0$} at all times, i.e. $(\frac{d u} {dx})(t)_{x_0}=0$}}, now lets write down all the relevant equations we obtain employing this assumption:
+\begin{equa}
+  (u_{tt})|_{x_0} &= (u')^2|_{x_0} = 0~,\\
+  (u_{tt})'|_{x_0} &= 2 u'|_{x_0} u''|_{x_0} = 0 ~,\\
+  (u_{tt})''|_{x_0} &= 2 (u'')^2|_{x_0} +2 u' u'''|_{x_0} = 2 (u'')^2|_{x_0} ~ ,\\
+  (u_{tt})'''|_{x_0} &= 4 u'''|_{x_0} u''|_{x_0} ~. \\
+\end{equa}
+On the other hand we also have,
+\begin{equa}
+  (u_{tt})|_{x_0} &= (u')^2|_{x_0} = 0~,\\
+  (u_{ttt})|_{x_0} &= 2 u'|_{x_0} u'_t|_{x_0} = 0 ~,\\
+ (u_{tttt})|_{x_0} &= 2 u'_t|_{x_0} u'_t|_{x_0} +  2 u'|_{x_0} u'_{tt}|_{x_0}   = 2 u'_t|_{x_0} u'_t|_{x_0} ~,\\
+   (u_{ttttt})|_{x_0} &= 4 u_t'|_{x_0} u'_{tt}|_{x_0} +  2 u'_t|_{x_0} u'_{tt}|_{x_0} +  2 u'|_{x_0} u'_{ttt}|_{x_0} = 0 ~. \\
+\end{equa}
+
+If we consider $\alpha(t) = u(t)|_{x_0}$, $a(t) = u_x(t)|_{x_0}$, $b(t) =u_{xx}(t)|_{x_0}$, $c(t) =u_{xxx}(t)|_{x_0}$ we have,
+\begin{equa}
+  \ddot{\alpha}(t) &= 0~,\\
+  \ddot{a}(t) &=  0 ~,\\
+  \ddot{b}(t) &= 2b(t)^2~ ,\\
+ \ddot{c}(t) &= 2b(t) c(t) ~. \\
+\end{equa}
+and,
+\begin{equa}
+ \dddot{a}(t) &=  0 ~,\\ 
+a^{(4)}(t) &= 2 a(t)^2  ~,\\
+ a^{(5)}(t) &= 0  ~, \\
+\end{equa}
+ $\ddot{\alpha}(t) = 0$ implies that $u(t)|_{x_0} = \frac{du}{dt}(t_0)|_{x_0} t + u(t_0)|_{x_0}$! If the initial condition for $\frac{du}{dt}(t_0)|_{x_0}$ is 0 then the value of the extrema do not change! Right? otherwise it should change! \\
+ 
+
+ 
+ 
+\end{document}
