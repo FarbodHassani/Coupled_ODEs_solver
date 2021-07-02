@@ -1,0 +1,266 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[allfiguresdraft]{draftfigure}
+%\newcommand{\pdfextension}{pdf}
+%\newcommand{\pngextension}{png}
+\usepackage{cite}
+\usepackage{natbib}
+\usepackage{breakcites}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+ \usepackage[dvipsnames]{xcolor}
+\let\rho=\varrho
+
+\def\fref#1{Fig.~\ref{#1}}
+\def\tabref#1{Table~\ref{#1}}
+\def\cref#1{Condition~\ref{#1}}
+\def\Cref#1{Corollary~\ref{#1}}
+\def\eref#1{(\ref{#1})}
+\def\sref#1{\textsection\ref{#1}}
+\def\lref#1{Lemma~\ref{#1}}
+\def\rref#1{Remark~\ref{#1}}
+\def\tref#1{Theorem~\ref{#1}}
+\def\dref#1{Definition~\ref{#1}}
+\def\pref#1{Proposition~\ref{#1}}
+\def\aref#1{Assumption~\ref{#1}}
+\def\qref#1{Subsection~\ref{#1}}
+
+\def\dref#1{Definition~\ref{#1}}
+\def\myundefined#1{\special{ps: 1 0 0 setrgbcolor}{what is #1?}%
+	\special{ps: 0 0 0 setrgbcolor}}
+\newenvironment{myitem}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\newenvironment{myenum}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+%\usepackage{sub_JP}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%\usepackage{makeidx}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{ amssymb }
+\usepackage{color}
+\usepackage{mhequ}
+\usepackage{dsfont}
+\usepackage[scanall]{psfrag}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{url}
+\usepackage{lipsum}
+%\usepackage{authblk}
+\usepackage{subfig}
+\usepackage{mhequ}
+
+\usepackage{tikz}
+\usepackage[graphics, active, tightpage]{}
+
+%\usepackage[expansion=true]{microtype}
+
+%\captionsetup[figure]{margin=2cm,font=footnotesize,labelfont=bf,labelsep=endash,textfont=rm}\captionsetup[subfigure]{margin=0pt}
+
+
+\def\thecomma{\ifx,\thenewxt \else\ifx;\thenext \else\ifx.\thenext
+	\else\ifx!\thenext \else\ifx:\thenext\else\ifx)\thenext \else \
+	\fi\fi\fi\fi\fi\fi}
+\def\condblank{\futurelet\thenext\thecomma}
+\def\ie{{\it i.e.,}\condblank}
+\def\eg{{\it e.g.,}\condblank}
+
+\numberwithin{equation}{section}
+
+
+
+\newtheorem*{oneshot}{Hypothesis~\ref{h:assumption}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition} %remarks in rm
+\newtheorem{remark}[theorem]{Remark}
+\def\HALF{{\textstyle\frac{1}{2}}}
+\def\TWOTHIRDS{{\textstyle\frac{2}{3}}}
+\def\FOURTHIRDS{{\textstyle\frac{4}{3}}}
+%\bibliographystyle{JPE}
+%\usepackage{cite}
+
+\usepackage{stmaryrd}
+\def\scomm#1#2{\ensuremath{\bigr\llbracket #1:#2\bigr\rrbracket}}
+
+\newcommand{\meq}[1]{\ensuremath{\stackrel{\scriptscriptstyle#1}{\scriptstyle
+			\sim}}}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dt}{\,\dd t}
+\newcommand{\mpart}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+
+\newcommand{\bigoh}[1]{\hat {\mathcal O}(p_2^{#1})}
+\newcommand{\bigohneg}[1]{\hat {\mathcal O}\!\left({p_2^{-#1}}\right)}
+
+\newcommand{\jp }[1]{{\color{magenta}jp*****:  #1}}
+\newcommand{\noe }[1]{{\color{red}noe:  #1}}
+\newcommand{\christophe }[1]{{\color{red}christophe: #1}}
+\def\argcdot{{\,\cdot\,}}
+
+
+\newcommand{\cA}{{\ensuremath{\mathcal A}} }
+\newcommand{\cF}{{\ensuremath{\mathcal F}} }
+\newcommand{\cP}{{\ensuremath{\mathcal P}} }
+\newcommand{\cE}{{\ensuremath{\mathcal E}} }
+\newcommand{\cH}{{\ensuremath{\mathcal H}} }
+\newcommand{\cC}{{\ensuremath{\mathcal C}} }
+\newcommand{\cN}{{\ensuremath{\mathcal N}} }
+\newcommand{\cL}{{\ensuremath{\mathcal L}} }
+\newcommand{\cT}{{\ensuremath{\mathcal T}} }
+\newcommand{\cD}{{\ensuremath{\mathcal D}} }
+\newcommand{\cU}{{\ensuremath{\mathcal U}} }
+\newcommand{\cV}{{\ensuremath{\mathcal V}} }
+\newcommand{\cS}{{\ensuremath{\mathcal S}} }
+\newcommand{\cY}{{\ensuremath{\mathcal Y}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Blackboard bolds
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bbA}{{\ensuremath{\mathbb A}} }
+\newcommand{\bbB}{{\ensuremath{\mathbb B}} }
+\newcommand{\bbC}{{\ensuremath{\mathbb C}} }
+\newcommand{\bbD}{{\ensuremath{\mathbb D}} }
+\newcommand{\bbE}{{\ensuremath{\mathbb E}} }
+\newcommand{\bbF}{{\ensuremath{\mathbb F}} }
+\newcommand{\bbG}{{\ensuremath{\mathbb G}} }
+\newcommand{\bbH}{{\ensuremath{\mathbb H}} }
+\newcommand{\bbI}{{\ensuremath{\mathbb I}} }
+\newcommand{\bbJ}{{\ensuremath{\mathbb J}} }
+\newcommand{\bbK}{{\ensuremath{\mathbb K}} }
+\newcommand{\bbL}{{\ensuremath{\mathbb L}} }
+\newcommand{\bbM}{{\ensuremath{\mathbb M}} }
+\newcommand{\bbN}{{\ensuremath{\mathbb N}} }
+\newcommand{\bbO}{{\ensuremath{\mathbb O}} }
+\newcommand{\bbP}{{\ensuremath{\mathbb P}} }
+\newcommand{\bbQ}{{\ensuremath{\mathbb Q}} }
+\newcommand{\bbR}{{\ensuremath{\mathbb R}} }
+\newcommand{\bbS}{{\ensuremath{\mathbb S}} }
+\newcommand{\bbT}{{\ensuremath{\mathbb T}} }
+\newcommand{\bbU}{{\ensuremath{\mathbb U}} }
+\newcommand{\bbV}{{\ensuremath{\mathbb V}} }
+\newcommand{\bbW}{{\ensuremath{\mathbb W}} }
+\newcommand{\bbX}{{\ensuremath{\mathbb X}} }
+\newcommand{\bbY}{{\ensuremath{\mathbb Y}} }
+\newcommand{\bbZ}{{\ensuremath{\mathbb Z}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Greek letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gga}{\gamma}            % \gg already exists...
+\newcommand{\gd}{\delta}
+\newcommand{\gep}{\varepsilon}       % \ge already exists...
+\newcommand{\gp}{\varphi}
+\newcommand{\gr}{\rho}
+\newcommand{\gvr}{\varrho}
+\newcommand{\gz}{\zeta}
+\newcommand{\gG}{\Gamma}
+\newcommand{\gP}{\Phi}
+\newcommand{\gD}{\Delta}
+\newcommand{\gk}{\kappa}
+\newcommand{\go}{\omega}
+\newcommand{\gto}{{\tilde\omega}}
+\newcommand{\gO}{\Omega}
+\newcommand{\gl}{\lambda}
+\newcommand{\gL}{\Lambda}
+\newcommand{\gs}{\sigma}
+\newcommand{\gS}{\Sigma}
+\newcommand{\gt}{\vartheta}
+\let\kappa=\varkappa
+\let\phi=\varphi
+\def\CC{{\mathcal C}}
+\def\Rsch{r_{\rm sch}}
+\def\d{{\rm d}} 
+\def\KK{{\mathcal K}}
+\def\OO{{\mathcal O}}
+\def\integer{{\mathbb Z}}
+\def\real{{\mathbb R}}
+\newcommand{\ind}{\mathbf{1}}
+\def\p2t2{{\tilde p_2^{\,2}}}
+
+\def\fhc#1{\textcolor{violet}{#1}}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\newcommand{\fhn}[1]{{\textcolor{bittersweet}{\sf[#1]}}}
+\newcommand{\edit}[2] {\textcolor{black}{\sout{#1}} {\textcolor{violet}{#2}} }
+\newcommand{\HZ}[1]{\textcolor{ForestGreen}{HZ:#1}}
+\def\JP#1{\textcolor{blue}{JPE:#1}}
+\let\epsilon=\varepsilon
+\usepackage{authblk}
+
+%%%%%%%
+%% Farbod Hassani
+%%%%%%%
+\newcommand{\HH}{\mathcal H}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\const{\text{const.}}
+\def\citep#1{[#1]}
+\begin{document}
+Trying wave at $x=0$. Consider, locally
+
+\begin{equa}
+  u(x,t)=a(t) +b(t)x^2 ~.
+\end{equa}
+The equation
+\begin{equa}
+  u_{tt}(x,t)=A(u_x(x,t))^2+u_{xx}(x,t)
+\end{equa}
+leads to $A(u_x(x,t))^2=4A b(t)^2x^2$ and
+$u_{xx}(x,t)=2b(t)$.
+Thus we get the coupled equations
+\begin{equa}
+  &\ddot a(t)=2b(t)~,\\
+  &\ddot b(t)=4Ab(t)^2~.
+\end{equa}
+The initial conditions are $u(x,0)=0$, and $u_t(x,0)=\mu+\nu x^2$,
+locally near 0.
+This corresponds to
+\begin{equa}
+  a(0)=b(0)=0~,\quad\text{ and }\quad \dot a(0)=\mu, \dot b(0)=\nu~.
+\end{equa}
+Maple says that the solutions are Weierstrass P functions, but the
+result is bizarre.
+
+Anyway, I think that numerically one can easily integrate this
+problem, and, because $A>0$ and $\dot b(0) >0 $ (positive curvature), I
+believe that, indeed the second derivative diverges in some finite
+time (at 0). This says nothing about any divergence of the adwancing
+front.
+
+What do you think?
+
+
+\end{document}
