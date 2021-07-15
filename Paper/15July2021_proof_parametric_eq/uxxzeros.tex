@@ -1,0 +1,405 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage[allfiguresdraft]{draftfigure}
+%\newcommand{\pdfextension}{pdf}
+%\newcommand{\pngextension}{png}
+\usepackage{cite}
+\usepackage{natbib}
+\usepackage{breakcites}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+ \usepackage[dvipsnames]{xcolor}
+\let\rho=\varrho
+
+\def\fref#1{Fig.~\ref{#1}}
+\def\tabref#1{Table~\ref{#1}}
+\def\cref#1{Condition~\ref{#1}}
+\def\Cref#1{Corollary~\ref{#1}}
+\def\eref#1{(\ref{#1})}
+\def\sref#1{\textsection\ref{#1}}
+\def\lref#1{Lemma~\ref{#1}}
+\def\rref#1{Remark~\ref{#1}}
+\def\tref#1{Theorem~\ref{#1}}
+\def\dref#1{Definition~\ref{#1}}
+\def\pref#1{Proposition~\ref{#1}}
+\def\aref#1{Assumption~\ref{#1}}
+\def\qref#1{Subsection~\ref{#1}}
+
+\def\dref#1{Definition~\ref{#1}}
+\def\myundefined#1{\special{ps: 1 0 0 setrgbcolor}{what is #1?}%
+	\special{ps: 0 0 0 setrgbcolor}}
+\newenvironment{myitem}
+{\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\newenvironment{myenum}
+{\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{enumerate}}
+
+%\usepackage{sub_JP}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%\usepackage{makeidx}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{ amssymb }
+\usepackage{color}
+\usepackage{mhequ}
+\usepackage{dsfont}
+\usepackage[scanall]{psfrag}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{url}
+\usepackage{lipsum}
+%\usepackage{authblk}
+\usepackage{subfig}
+\usepackage{mhequ}
+
+\usepackage{tikz}
+\usepackage[graphics, active, tightpage]{}
+
+%\usepackage[expansion=true]{microtype}
+
+%\captionsetup[figure]{margin=2cm,font=footnotesize,labelfont=bf,labelsep=endash,textfont=rm}\captionsetup[subfigure]{margin=0pt}
+
+
+\def\thecomma{\ifx,\thenewxt \else\ifx;\thenext \else\ifx.\thenext
+	\else\ifx!\thenext \else\ifx:\thenext\else\ifx)\thenext \else \
+	\fi\fi\fi\fi\fi\fi}
+\def\condblank{\futurelet\thenext\thecomma}
+\def\ie{{\it i.e.,}\condblank}
+\def\eg{{\it e.g.,}\condblank}
+
+\numberwithin{equation}{section}
+
+
+
+\newtheorem*{oneshot}{Hypothesis~\ref{h:assumption}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition} %remarks in rm
+\newtheorem{remark}[theorem]{Remark}
+\def\HALF{{\textstyle\frac{1}{2}}}
+\def\TWOTHIRDS{{\textstyle\frac{2}{3}}}
+\def\FOURTHIRDS{{\textstyle\frac{4}{3}}}
+%\bibliographystyle{JPE}
+%\usepackage{cite}
+
+\usepackage{stmaryrd}
+\def\scomm#1#2{\ensuremath{\bigr\llbracket #1:#2\bigr\rrbracket}}
+
+\newcommand{\meq}[1]{\ensuremath{\stackrel{\scriptscriptstyle#1}{\scriptstyle
+			\sim}}}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dt}{\,\dd t}
+\newcommand{\mpart}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\avg}[1]{\left\langle #1\right\rangle}
+
+\newcommand{\bigoh}[1]{\hat {\mathcal O}(p_2^{#1})}
+\newcommand{\bigohneg}[1]{\hat {\mathcal O}\!\left({p_2^{-#1}}\right)}
+
+\newcommand{\jp }[1]{{\color{magenta}jp*****:  #1}}
+\newcommand{\noe }[1]{{\color{red}noe:  #1}}
+\newcommand{\christophe }[1]{{\color{red}christophe: #1}}
+\def\argcdot{{\,\cdot\,}}
+
+
+\newcommand{\cA}{{\ensuremath{\mathcal A}} }
+\newcommand{\cF}{{\ensuremath{\mathcal F}} }
+\newcommand{\cP}{{\ensuremath{\mathcal P}} }
+\newcommand{\cE}{{\ensuremath{\mathcal E}} }
+\newcommand{\cH}{{\ensuremath{\mathcal H}} }
+\newcommand{\cC}{{\ensuremath{\mathcal C}} }
+\newcommand{\cN}{{\ensuremath{\mathcal N}} }
+\newcommand{\cL}{{\ensuremath{\mathcal L}} }
+\newcommand{\cT}{{\ensuremath{\mathcal T}} }
+\newcommand{\cD}{{\ensuremath{\mathcal D}} }
+\newcommand{\cU}{{\ensuremath{\mathcal U}} }
+\newcommand{\cV}{{\ensuremath{\mathcal V}} }
+\newcommand{\cS}{{\ensuremath{\mathcal S}} }
+\newcommand{\cY}{{\ensuremath{\mathcal Y}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Blackboard bolds
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bbA}{{\ensuremath{\mathbb A}} }
+\newcommand{\bbB}{{\ensuremath{\mathbb B}} }
+\newcommand{\bbC}{{\ensuremath{\mathbb C}} }
+\newcommand{\bbD}{{\ensuremath{\mathbb D}} }
+\newcommand{\bbE}{{\ensuremath{\mathbb E}} }
+\newcommand{\bbF}{{\ensuremath{\mathbb F}} }
+\newcommand{\bbG}{{\ensuremath{\mathbb G}} }
+\newcommand{\bbH}{{\ensuremath{\mathbb H}} }
+\newcommand{\bbI}{{\ensuremath{\mathbb I}} }
+\newcommand{\bbJ}{{\ensuremath{\mathbb J}} }
+\newcommand{\bbK}{{\ensuremath{\mathbb K}} }
+\newcommand{\bbL}{{\ensuremath{\mathbb L}} }
+\newcommand{\bbM}{{\ensuremath{\mathbb M}} }
+\newcommand{\bbN}{{\ensuremath{\mathbb N}} }
+\newcommand{\bbO}{{\ensuremath{\mathbb O}} }
+\newcommand{\bbP}{{\ensuremath{\mathbb P}} }
+\newcommand{\bbQ}{{\ensuremath{\mathbb Q}} }
+\newcommand{\bbR}{{\ensuremath{\mathbb R}} }
+\newcommand{\bbS}{{\ensuremath{\mathbb S}} }
+\newcommand{\bbT}{{\ensuremath{\mathbb T}} }
+\newcommand{\bbU}{{\ensuremath{\mathbb U}} }
+\newcommand{\bbV}{{\ensuremath{\mathbb V}} }
+\newcommand{\bbW}{{\ensuremath{\mathbb W}} }
+\newcommand{\bbX}{{\ensuremath{\mathbb X}} }
+\newcommand{\bbY}{{\ensuremath{\mathbb Y}} }
+\newcommand{\bbZ}{{\ensuremath{\mathbb Z}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Greek letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gga}{\gamma}            % \gg already exists...
+\newcommand{\gd}{\delta}
+\newcommand{\gep}{\varepsilon}       % \ge already exists...
+\newcommand{\gp}{\varphi}
+\newcommand{\gr}{\rho}
+\newcommand{\gvr}{\varrho}
+\newcommand{\gz}{\zeta}
+\newcommand{\gG}{\Gamma}
+\newcommand{\gP}{\Phi}
+\newcommand{\gD}{\Delta}
+\newcommand{\gk}{\kappa}
+\newcommand{\go}{\omega}
+\newcommand{\gto}{{\tilde\omega}}
+\newcommand{\gO}{\Omega}
+\newcommand{\gl}{\lambda}
+\newcommand{\gL}{\Lambda}
+\newcommand{\gs}{\sigma}
+\newcommand{\gS}{\Sigma}
+\newcommand{\gt}{\vartheta}
+\let\kappa=\varkappa
+\let\phi=\varphi
+\def\CC{{\mathcal C}}
+\def\Rsch{r_{\rm sch}}
+\def\d{{\rm d}} 
+\def\KK{{\mathcal K}}
+\def\OO{{\mathcal O}}
+\def\integer{{\mathbb Z}}
+\def\real{{\mathbb R}}
+\newcommand{\ind}{\mathbf{1}}
+\def\p2t2{{\tilde p_2^{\,2}}}
+
+\def\fhc#1{\textcolor{violet}{#1}}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\newcommand{\fhn}[1]{{\textcolor{bittersweet}{\sf[#1]}}}
+\newcommand{\edit}[2] {\textcolor{black}{\sout{#1}} {\textcolor{violet}{#2}} }
+\newcommand{\HZ}[1]{\textcolor{ForestGreen}{HZ:#1}}
+\def\JP#1{\textcolor{blue}{JPE:#1}}
+\let\epsilon=\varepsilon
+\usepackage{authblk}
+
+%%%%%%%
+%% Farbod Hassani
+%%%%%%%
+\newcommand{\HH}{\mathcal H}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\const{\text{const.}}
+\def\citep#1{[#1]}
+\begin{document}
+\section{$\alpha =0$}
+Consider, again
+\begin{equ}\label{eq:azero}
+  u_{tt}=u_{xx}~,
+\end{equ}
+with initial condition $u(x,0)=0$ and $u_t(x,0)=g(x)$,
+with $g(x)$ having compact support, $g'(0)=0$, $g''(0)>0$. I typically
+think of $g(x)=-((1+\cos(x))/2)^n$, restricted to $[-\pi,\pi]$, which
+is differentiable when e.g.~$n=2$.
+
+The solution of \eref{eq:azero} is
+\begin{equ}
+  u(x,t)=\HALF \int_{x-t}^{x+t} g(\xi) \d \xi~.
+\end{equ}
+This implies that
+\begin{equ}
+  u_{xx}(x,t)=\HALF( g'(x+t)-g'(x-t) )~.
+\end{equ}
+Note now that if (for our example) $t>\pi/2$, the two terms above have
+distinct supports and for $x<0$,
+\begin{equ}
+   u_{xx}(x,t)=\HALF g'(x+t)~.
+\end{equ}
+Since $g'(x)$ (inside its support) only vanishes for $x=0$,
+we conclude that when $x$ is not too far from $t$ then
+\begin{equ}\label{eq:moving}
+  u_{xx}(x,t)=0  \text { if and only if } x\pm t=0~.
+\end{equ}
+Intuitively, this means that the root of $u_{xx}$ moves away from 0
+with exactly the speed of the wave.
+
+
+\section{$\alpha >0$}
+In this case, the idea is that if $\alpha $ is small, then the roots
+of $u_{xx}$ move \emph{away} from the origin, while for $\alpha $
+large enough, they move \emph{towards} the origin, leading to local blowup.
+
+Note that $u_{xx}(x_0,t)=0$ means that $|u_x(x_0,t)|$ is extremal.
+Therefore, the extrema of $u_x(\cdot,t)$ (near 0), are at the positions
+where the quantity $u_{xx}$ vanishes. One should use now the formula
+\begin{equ}\label{eq:peter}
+  u(x,t)=u_0(x,t) +\alpha \int_0^t \d\tau \int_{x-t+\tau }^{x+t-\tau}  \d\xi\,
+  (u_x(\xi,\tau))^2\equiv u_0(x,t)+\alpha s(x,t)~,
+\end{equ}
+to estimate how the $\alpha $-dependent term moves the roots of
+$u_{xx}$.
+
+
+Consider the implicit equation
+\begin{equ}
+  u_{xx}(z(t),t)=0~.
+\end{equ}
+By what we have said before, when $\alpha =0$, then $z_0(t)=-t$ is a
+possible solution (when $t>\pi/2$). We now want to show that when
+$\alpha >0$ then $z_\alpha (t)>z_0(t)=-t$. (Here, the index $\alpha $ is not
+a derivative, just a sign for the $\alpha $-dependence.)
+Write
+\begin{equa}
+  s(x,t) = \int_0^t \d \tau \int_{x-t+\tau }^{x+t-\tau } \d \xi
+  f(\xi,\tau )~.
+\end{equa}
+
+The derivatives of $s$ are then
+\begin{equa}
+  s_x&=\int_0^t \d\tau \,\left(f(x+t-\tau ,\tau )-f(x-t+\tau ,\tau) \right)~,\\
+  s_{xx}&=\int_0^t \d\tau \,\left(f_x(x+t-\tau ,\tau )-f_x(x-t+\tau ,\tau) \right)~,\\
+  s_{xxx}&=\int_0^t \d\tau \,\left(f_{xx}(x+t-\tau ,\tau )-f_{xx}(x-t+\tau ,\tau) \right)~,\\
+  s_{xxt}&=\int_0^t \d\tau \,\left(f_{xx}(x+t-\tau ,\tau )+f_{xx}(x-t+\tau ,\tau) \right)~.\\
+\end{equa}
+Since $u_{0,xx}(x,t)=\HALF (g'(x+t)-g'(x-t))$,
+we also have
+\begin{equa}
+  u_{0,xxx}&=\HALF(g''(x+t)-g''(x-t))~,\\
+  u_{0,xxt}&=\HALF(g''(x+t)+g''(x-t))~.\\
+\end{equa}
+Therefore,
+\begin{equ}
+  z_\alpha '(t)=-\frac{u_{xxt}(z(t),t)}{u_{xxx}(z(t),t)}=
+ - \frac{u_{0,xxt}+\alpha s_{xxt}}{u_{0,xxx}+\alpha s_{xxx}}~.
+\end{equ}
+We cannow restrict to negative $x$, and then we get
+\begin{equ}
+  z_\alpha '(t)=
+ - \frac{\HALF g''(x+t)+\alpha s_{xxt}}{\HALF g''(x+t)+\alpha s_{xxx}}~.
+\end{equ}
+Clearly, for $\alpha =0$ we find $z_0'(t)=-1$.
+
+
+Consider now ``our'' case when $f=(u_x)^2$.
+Then, $f_x= 2 u_x u_{xx} $ and
+\begin{equa}
+  f_{xx}=2(u_{xx})^2+2 u_{xxx} u_x~.
+\end{equa}
+
+\section{Perturbation theory}
+
+Let us replace \eref{eq:peter} by the first order approximation:
+\begin{equ}
+ u_0(x,t)+\alpha \int_0^t \d\tau \int_{x-t+\tau }^{x+t-\tau }
+ (u_{0,x}(\xi,\tau ))^2~.
+\end{equ}
+Then the implicit equation for $z$  is
+\begin{equ}
+  u_{0xx}(z(t),t)+\left .\alpha \partial_x^2\int_0^t \d\tau \int_{x-t+\tau }^{x+t-\tau }
+  (u_{0x}(\xi,\tau ))^2\right|_{x=z(t)}=0~.
+\end{equ}
+Let $X=\int_0^t \d\tau \int_{x-t+\tau }^{x+t-\tau }
+  (u_{0x}(\xi,\tau ))^2$.  
+Looking only on the negative ($x$) side, we have $u_{0x}(x,t)=\HALF g(x+t)$ and therefore
+this leads (near $x+t=0$), to
+\begin{equ}
+  X=\frac{1}{4}\int_0^t \d\tau  \int_{x-t+\tau }^{x+t-\tau } \d \xi\, g(\xi+\tau)^2~.
+\end{equ}
+The derivatives are
+\begin{equa}
+  \partial_x X &= \frac{1}{4}\int_0^t \d\tau  g(x+t-\tau
+  +\tau)^2-g(x-t+\tau +\tau)^2\\
+   &= \frac{1}{4}\int_0^t \d\tau  g(x+t)^2-g(x-t +2\tau)^2~,\\
+  \partial_x^2 X &= \frac{1}{4}\int_0^t \d\tau \,
+  \partial_x(g(x+t)^2)-\partial_x(g(x-t+2\tau)^2)\\
+  &=-\frac{1}{4}\left(g(x+t)^2-g(x-t)^2\right)~.
+\end{equa}
+Therefore, we find, in perturbation theory, the equation for $z(t)$ as
+\begin{equ}\label{eq:perturb}
+ \frac{1}{2} g'(z(t)+t)-\frac{\alpha}{4}(g(z(t)+t))^2=0~.
+\end{equ}
+Since $g(0)=-1$, $g'(0)=0$, and $g''(0)>0$, we can write
+$g(x)=-1+Ax^2+\OO(x^3)$, with $A>0$.
+Then \eref{eq:perturb} with $z(t)+t=\epsilon $ leads to:
+\begin{equa}
+  g'(\epsilon )/2=\alpha g(\epsilon )^2/4~,
+\end{equa}
+and therefore
+\begin{equa}
+  z(t)=-t+\epsilon =-t+\frac{\alpha }{4A}=-t+\frac{\alpha g(0)^2}{4g''(0)}
+\end{equa}
+Note that under our assumptions on $g$ the shift ${\alpha
+  g(0)^2}/({4g''(0)})$ is \emph{positive}, \ie the extrema move
+towards the center.
+
+
+\section{Disorderd thoughts}
+
+Here I sketch (badly) what I have in mind:
+
+At any time $t$, I want to consider the current $u(x,t)$ as a new
+initial condition. But, we are not interested in the full evolution of
+the solution, but only in the motion of $z(t)$ which is defined by
+$u_{xx}(z(t),t)=0$. So I consider $f(x)=u(x,t)$ and $g(x)=u_t(x,t)$ as my
+initial conditions at time $t$. The ``free'' evolution from this
+initial condition at time $t+\epsilon $  should be (on one side only)
+\begin{equa}\label{eq:version1}
+  \HALF f(x+\epsilon ) +\HALF \int_{x-\epsilon }^{x+\epsilon }  g(\xi)
+  \d \xi + \frac{\alpha }{2} \int_0^\epsilon\d \tau \int_{x-\epsilon
+    +\tau}^{x+\epsilon -\tau }\d \xi  (u_x(\xi,t+\tau ))^2~. 
+\end{equa}
+I have a feeling that the ``correct'' speed in this case should be
+$z'(t)$ and not $1$  so that perhaps one should have taken for
+example
+\begin{equa}\label{eq:version2}
+  \HALF f(x+z'(t)\epsilon ) +\HALF \int_{x-z'(t)\epsilon }^{x+z'(t)\epsilon }  g(\xi)
+  \d \xi +\frac{\alpha}{2}  \int_0^{z'(t)\epsilon }\d \tau \int_{x-z'(t)\epsilon
+    +\tau}^{x+z'(t)\epsilon -\tau }\d \xi  (u_x(\xi,t+\tau ))^2 ~.
+\end{equa}
+I have somehow the idea that the form \eref{eq:version2} should
+somehow make better cancellations, but I am stuck here.
+
+Anyway, the idea is now that \eref{eq:version1} or
+\eref{eq:version2}, \emph{near the root of $u_{xx}$} can be treated
+again with the implicit function idea as in \eref{eq:perturb}. 
+
+
+
+\end{document}
